@@ -1,0 +1,14 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title Profile
+    link(rel="stylesheet" href="/src/layout/profile/profile.scss")
+    block style
+    block script
+  body
+    aside
+      a(href="/src/pages/chat-list/chat-list.pug") 
+          include ../../../static/arrow.svg
+    main
+        block content

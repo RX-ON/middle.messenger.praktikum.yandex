@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* button component */
+@import url("/src/pages/components/button/button.scss");
+
+html {
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        aside {
+            height: 100vh;
+            float: left;
+            width: 64px;
+            border-right: 1px solid #EAEAEA;
+            background: #FBFBFB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 0;
+            .blue-arrow {
+                transform: rotate(0.5turn);
+            }
+        }
+        main {
+            height: 100vh;
+            width: 510px;
+        }
+    }
+}

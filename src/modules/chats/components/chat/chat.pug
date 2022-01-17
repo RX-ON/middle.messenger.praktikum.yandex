@@ -1,0 +1,12 @@
+hr(noshade)
+.chat(id=data.id)
+    .img
+        img(src=data.src || "https://via.placeholder.com/150", alt="")
+    .row
+        label #{data.label}
+        span #{data.date}
+    .row
+        p #{data.text}
+        if data.count
+            .notification
+                span #{data.count}

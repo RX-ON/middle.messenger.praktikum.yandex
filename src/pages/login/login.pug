@@ -1,0 +1,22 @@
+extends ../../layout/auth/auth
+
+block style
+    link(rel="stylesheet" href="/src/pages/login/login.scss")
+block content
+    form.login
+        h1 Вход
+
+
+        - let fields = [{class: 'login', text: 'Логин'}, {class: 'password', text: 'Пароль', attributes: {type: 'password', autocomplete: 'on'}}]
+        each data in fields
+            include ../../pages/components/input/input.pug
+
+
+        - let btnName = 'Авторизироваться'
+        include ../../pages/components/button/button.pug
+
+
+        a(href="/src/pages/registration/registration.pug") Нет аккаунта?
+            
+block script
+    script(src="./login.js" type="module")

@@ -1,0 +1,14 @@
+extends ../../layout/main/main
+
+block style
+    link(rel="stylesheet" href="/src/pages/chat-list/chat-list.scss")
+    link(rel="stylesheet" href="/src/modules/chats/chats.scss")
+
+block script
+
+block content 
+    aside 
+        include ../../modules/chats/chats.pug
+
+    .message-field
+        p Выберите чат чтобы отправить сообщение

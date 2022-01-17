@@ -1,0 +1,13 @@
+$main_color: #3369F3;
+
+.btn {
+    width: 280px;
+    height: 37px;
+    border: 0;
+    border-radius: 8px;
+    background: $main_color;
+    color: white;
+    font-family: "Inter";
+    font-size: 13px;
+    cursor: pointer;
+}

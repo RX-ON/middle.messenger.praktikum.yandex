@@ -1,0 +1,17 @@
+aside {
+    float: left;
+}
+
+.message-field {
+    height: 100vh;
+    margin-left: 310px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    p {
+        display: block;
+        margin: 0 auto;
+        font-size: 12px;
+        color: #999999;
+    }
+}
