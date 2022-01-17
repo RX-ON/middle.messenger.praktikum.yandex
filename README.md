@@ -31,6 +31,6 @@ $ npm run start
 ## Ссылки
 
 - [Макет в Figma](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1) (Пока взял стандартный)
-- [Netlify](https://peaceful-cray-f958c1.netlify.app/)
+- [Netlify](https://vigilant-albattani-135a28.netlify.app/)
 - [GitHub](https://github.com/RX-ON/Messenger)
 
