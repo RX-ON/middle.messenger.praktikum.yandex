@@ -1,30 +1,32 @@
 $gray-color: #999999;
+$border_color: #EAEAEA;
+$font_black_color: #1E1E1E;
+$font_white_color: white;
 
 .info-field {
     display: block;
     position: relative;
-    label {
+    label.name {
         display: block;
         position: absolute;
         top: 9px;
         font-size: 13px;
-        color: #000000;
+        color: $font_black_color;
         cursor: text;
     }
-    input {
+    input.data {
         width: 100%;
         text-align: right;
-        outline: none;
         border: 0;
         color: $gray-color;
         font-size: 13px;
         padding: 10px 0;
         &:disabled {
             color: $gray-color;
-            background: white;
+            background: $font_white_color;
         }
     }
-    border-bottom: 1px solid #EAEAEA;
+    border-bottom: 1px solid $border_color;
     &:nth-last-child(-n+1) {
         border: 0;
     }

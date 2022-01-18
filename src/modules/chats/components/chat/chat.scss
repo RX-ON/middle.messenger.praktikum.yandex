@@ -1,16 +1,20 @@
 $gray-color: #999999;
+$border_color: #EAEAEA;
+$font_black_color: #1E1E1E;
+$main_color: #3369F3;
+$font_white_color: white;
 
-hr {
+
+hr.border {
     width: 290px;
     margin: 0 auto;
     border: 0;
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid $border_color;
     background: none;
 }
 
 .chat {
     height: 46px;
-    /* border-top: 1px solid #EAEAEA; */
     padding: 12px 10px;
 
     .img {
@@ -39,20 +43,20 @@ hr {
             align-items: flex-end;
         }
         
-        label {
+        label.title {
             display: block;
             font-size: 13px;
-            color: #1E1E1E;
+            color: $font_black_color;
             font-weight: bold;
         }
         
-        span {
+        span.date {
             display: block;
             font-size: 9px;
             color: $gray-color;
         }
         
-        p {
+        p.chat__text {
             color: $gray-color;
             margin: 0;
             max-width: 193px;
@@ -67,13 +71,13 @@ hr {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #3369F3;
+            background: $main_color;
             display: flex;
             justify-content: center;
             align-items: center;
     
-            span {
-                color: white;
+            span.counter {
+                color: $font_white_color;
             }
         }
     }

@@ -1,8 +1,8 @@
 section.chats
     - let profileLink = 'Профиль >'
-    a(href="/src/pages/user-profile/user-profile.pug") #{profileLink}
+    a.profile(href="/src/pages/user-profile/user-profile.pug") #{profileLink}
 
-    input(type="text" placeholder="Поиск")
+    input.search(type="text" placeholder="Поиск")
 
     -
         const chatsList = [

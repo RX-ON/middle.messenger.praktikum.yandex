@@ -3,8 +3,8 @@ extends ../../layout/auth/auth
 block style
     link(rel="stylesheet" href="/src/pages/registration/registration.scss")
 block content
-    form
-        h1 Регистрация
+    form.registration
+        h1.form-name Регистрация
 
         -
             let fields = [
@@ -24,7 +24,7 @@ block content
         include ../../pages/components/button/button.pug
 
 
-        a(href="/src/pages/login/login.pug") Войти
+        a.log-in(href="/src/pages/login/login.pug") Войти
 
 block script
     script(src="./registration.js" type="module")

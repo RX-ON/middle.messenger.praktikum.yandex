@@ -1,4 +1,6 @@
 $main_color: #3369F3;
+$gray-color: #999999;
+$red_color: #FF2F2F;
 
 .field {
     padding-top: 15px;
@@ -6,12 +8,11 @@ $main_color: #3369F3;
     width: 280px;
     height: 37px;
     
-    input {
+    input.data {
         padding-bottom: 5px;
         padding-left: 0px;
         padding-right: 0px;
         display: block;
-        outline: none;
         border: 0;
         border-bottom: 1px solid $main_color;
         width: 100%;
@@ -25,12 +26,12 @@ $main_color: #3369F3;
         }
     }
     
-    label {
+    label.name {
         display: block;
         position: absolute;
         top: 15px;
         font-size: 13px;
-        color: #999999;
+        color: $gray-color;
         transition: .2s;
         cursor: text;
     }
@@ -39,7 +40,7 @@ $main_color: #3369F3;
         display: block;
         padding-top: 4px;
         font-size: 8px;
-        color: #FF2F2F;
+        color: $red_color;
         opacity: 0;
         transition: .2s;
         

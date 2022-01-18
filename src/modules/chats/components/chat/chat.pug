@@ -1,12 +1,12 @@
-hr(noshade)
+hr.border(noshade)
 .chat(id=data.id)
     .img
         img(src=data.src || "https://via.placeholder.com/150", alt="")
     .row
-        label #{data.label}
-        span #{data.date}
+        label.title #{data.label}
+        span.date #{data.date}
     .row
-        p #{data.text}
+        p.chat__text #{data.text}
         if data.count
             .notification
-                span #{data.count}
+                span.counter #{data.count}
