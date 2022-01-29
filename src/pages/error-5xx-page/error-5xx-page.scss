@@ -1,0 +1,26 @@
+$font_black_color: #1E1E1E;
+$main_color: #3369F3;
+section.error {
+    height: 100vh;
+    color: $font_black_color;
+    span.code {
+        display: block;
+        text-align: center;
+        font-size: 40px;
+        margin-top: 330px;
+    }
+    p.description {
+        margin-top: 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    a.back {
+        display: block;
+        margin-top: 70px;
+        font-size: 11px;
+        color: $main_color;
+        text-decoration: none;
+        text-align: center;
+    }
+}

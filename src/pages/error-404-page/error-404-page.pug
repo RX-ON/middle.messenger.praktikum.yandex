@@ -1,0 +1,12 @@
+extends ../../layout/main/main
+
+block style
+    link(rel="stylesheet" href="/src/pages/error-404-page/error-404-page.scss")
+
+block script
+
+block content 
+    section.error
+        span.code 404
+        p.description Не туда попали
+        a.back(href="/src/pages/chat-list/chat-list.pug") Назад к чатам 

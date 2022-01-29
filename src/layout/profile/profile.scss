@@ -1,0 +1,33 @@
+/* Общие стили */
+@import url("/static/common.scss");
+/* button component */
+@import url("/src/pages/components/button/button.scss");
+
+$border_color: #EAEAEA;
+$bg_gray_color: #FBFBFB;
+
+
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    aside.back {
+        height: 100vh;
+        width: 64px;
+        border-right: 1px solid $border_color;
+        background: $bg_gray_color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        .blue-arrow {
+            transform: rotate(0.5turn);
+        }
+    }
+    main.content {
+        height: 100vh;
+        width: 510px;
+    }
+}

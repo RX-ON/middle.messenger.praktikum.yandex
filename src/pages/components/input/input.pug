@@ -1,0 +1,6 @@
+- const inputFieldClassName = `${data.name}-field`
+- const errorClassName = `${data.name}-error`
+div.field(class=inputFieldClassName)
+    input.data(id=data.name name=data.name required)&attributes(data.attributes)
+    label.name(for=data.name) #{data.text}
+    span.error(class=errorClassName) #{data.errorText || 'Какая-то ошибка'}

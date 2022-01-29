@@ -1,0 +1,38 @@
+extends ../../layout/profile/profile
+
+block style
+    link(rel="stylesheet" href="/src/pages/user-edit-profile/user-edit-profile.scss")
+    link(rel="stylesheet" href="/src/pages/components/info-input/info-input.scss")
+
+block script
+
+block content 
+    section.info
+        -
+            const data = {
+                src: "",
+                userData: {
+                    email: "gm@gmail.com",
+                    login: "Goodman",
+                    first_name: "Гриша",
+                    second_name: "Добров",
+                    display_name: "gooD",
+                    phone: "+7 (909) 345 67 12"
+                }
+            }
+            const KEYS = {
+                email: "Почта",
+                login: "Логин",
+                first_name: "Имя",
+                second_name: "Фамилия",
+                display_name: "Имя в чате",
+                phone: "Телефон"
+            }
+        .img
+            img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="")
+
+        form
+            each value, key in data.userData
+                include ../components/info-input/info-input.pug
+        - const btnName = 'Сохранить'
+        include ../components/button/button.pug

@@ -1,0 +1,27 @@
+$main_color: #3369F3;
+
+form.registration {
+    margin:50px 30px 30px;
+    display: flex;
+    flex-direction: column;
+
+    h1.form-name {
+        margin: 0 auto;
+        margin-bottom: 40px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    
+    .btn {
+        margin-top: 47px;
+    }
+    
+    a.log-in {
+        display: block;
+        text-decoration: none;
+        font-size: 11px;
+        color: $main_color;
+        text-align: center;
+        margin-top: 14px;
+    }
+}

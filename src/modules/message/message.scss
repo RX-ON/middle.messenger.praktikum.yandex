@@ -1,0 +1,104 @@
+$font_black_color: #1E1E1E;
+$my_message_color: #E4EDFD;
+$friend_message_color: #F8F8F8;
+$bg_gray_color: #FBFBFB;
+$gray-color: #999999;
+
+.msg {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    hr.border {
+        width: 96.5%;
+    }
+
+    header {
+
+        .wrapper {
+            height: 34px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px 10px 20px;
+            .companion {
+                display: flex;
+                align-items: center;
+            }
+            .img {
+                height: 34px;
+                width: 34px;
+                border-radius: 50%;
+                float: left;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            label.name {
+                margin-left: 10px;
+                font-size: 13px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    section.history {
+        flex-grow: 1;
+        overflow-y: hidden;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        .message {
+            overflow: hidden;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            padding: 5px;
+            color: $font_black_color;
+            font-size: 12px;
+            .message_my-message {
+                max-width: 380px;
+                background: $my_message_color;
+                margin: 10px;
+                right: 10px;
+                float: right;
+                border-radius: 10px;
+                padding: 11px;
+            }
+            .message_friend-message {
+                padding: 11px;
+                border-radius: 10px;
+                left: 10px;
+                float: left;
+                max-width: 380px;
+                background: $friend_message_color;
+                margin: 10px;
+            }
+        }
+    }
+    footer {
+        .wrapper {
+            padding: 10px 20px 10px 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            input.message_input {
+                flex-grow: 1;
+                width: 100%;
+                min-height: 32px;
+                background: $bg_gray_color;
+                border-radius: 30px;
+                border: 0;
+                font-size: 12px;
+                color: $gray-color;
+                padding-left: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
+}

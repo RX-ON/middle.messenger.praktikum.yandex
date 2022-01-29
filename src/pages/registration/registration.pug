@@ -1,0 +1,30 @@
+extends ../../layout/auth/auth
+
+block style
+    link(rel="stylesheet" href="/src/pages/registration/registration.scss")
+block content
+    form.registration
+        h1.form-name Регистрация
+
+        -
+            let fields = [
+                {name: 'email', text: 'Почта'},
+                {name: 'login', text: 'Логин'},
+                {name: 'first_name', text: 'Имя'},
+                {name: 'second_name', text: 'Фамилия'},
+                {name: 'phone', text: 'Телефон'},
+                {name: 'password', text: 'Пароль', attributes: {type: 'password', autocomplete: 'on'}},
+                {name: 'password_repeat', text: 'Пароль (ещё раз)', attributes: {type: 'password', autocomplete: 'on'}}
+            ]
+        each data in fields
+            include ../../pages/components/input/input.pug
+
+        
+        - let btnName = 'Зарегистрироваться'
+        include ../../pages/components/button/button.pug
+
+
+        a.log-in(href="/src/pages/login/login.pug") Войти
+
+block script
+    script(src="./registration.js" type="module")
