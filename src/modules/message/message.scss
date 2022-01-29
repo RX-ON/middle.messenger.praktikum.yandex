@@ -50,6 +50,9 @@ $gray-color: #999999;
     section.history {
         flex-grow: 1;
         overflow-y: hidden;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
         .message {
             overflow: hidden;
             margin-bottom: 10px;
