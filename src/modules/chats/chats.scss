@@ -1,6 +1,4 @@
-$gray-color: #999999;
-$bg_gray_color: #FBFBFB;
-$border_color: #EAEAEA;
+@import '/static/vars.scss';
 
 section.chats {
     width: 310px;
@@ -22,7 +20,7 @@ section.chats {
         display: block;
         height: 32px;
         width: 290px;
-        background: $bg_gray_color;
+        background: $bg_gray_color_fe;
         border-radius: 5px;
         border: 0;
         margin: 23px auto 14px auto;
