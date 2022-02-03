@@ -8,6 +8,7 @@ import ChatListPage from "../src/pages/chat-list/chat-list.js";
 import MessageField from "../src/modules/message/message.js";
 import Button from "../src/pages/components/button/button.js";
 import Input from "../src/pages/components/input/input.js";
+import InfoInput from "../src/pages/components/info-input/info-input.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -194,6 +195,36 @@ switch (path) {
 						errorText: 'Ошибка',
 						errorClassName: 'password-error',
 						fieldClassName: 'password-field'
+					}
+				}).render()
+			})
+		);
+		break
+	};
+	case ('/info-input'): {
+		renderPage(
+			'#app',
+			new MainLayout({
+				content: new InfoInput({
+					data: {
+						src: "", 
+						disabled: true,
+						userData: {
+							email: "gm@gmail.com",
+							login: "Goodman",
+							first_name: "Гриша",
+							second_name: "Добров",
+							display_name: "gooD",
+							phone: "+7 (909) 345 67 12"
+						}
+					},
+					KEYS: {
+						email: "Почта",
+						login: "Логин",
+						first_name: "Имя",
+						second_name: "Фамилия",
+						display_name: "Имя в чате",
+						phone: "Телефон"
 					}
 				}).render()
 			})

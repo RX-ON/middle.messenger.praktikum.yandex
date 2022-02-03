@@ -1,7 +1,4 @@
-$gray-color: #999999;
-$border_color: #EAEAEA;
-$font_black_color: #1E1E1E;
-$font_white_color: white;
+@import "/src/common/styles/vars.scss";
 
 .info-field {
     display: block;
