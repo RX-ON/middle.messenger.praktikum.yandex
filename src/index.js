@@ -6,6 +6,8 @@ import ChatCollection from "../src/modules/chats/chats.js";
 import ChatSelectPage from "../src/pages/chat-select/chat-select.js";
 import ChatListPage from "../src/pages/chat-list/chat-list.js";
 import MessageField from "../src/modules/message/message.js";
+import Button from "../src/pages/components/button/button.js";
+import Input from "../src/pages/components/input/input.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -164,6 +166,35 @@ switch (path) {
 							count: 10
 						}
 					]
+				}).render()
+			})
+		);
+		break
+	};
+	case ('/button'): {
+		renderPage(
+			'#app',
+			new MainLayout({
+				content: new Button({
+					btnName: 'Суперкнопка!'
+				}).render()
+			})
+		);
+		break
+	};
+	case ('/input'): {
+		renderPage(
+			'#app',
+			new MainLayout({
+				content: new Input({
+					data: {
+						name: 'password',
+						attributes: {type: 'password', autocomplete: 'on'},
+						text: 'Пароль',
+						errorText: 'Ошибка',
+						errorClassName: 'password-error',
+						fieldClassName: 'password-field'
+					}
 				}).render()
 			})
 		);
