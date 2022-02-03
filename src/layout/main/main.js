@@ -1,14 +1,14 @@
 import Block from "../../common/scripts/modules/Block.js";
 import { compile } from "pug";
 import { readFileSync } from "fs";
-import './auth.scss';
+import './main.scss';
 
-let template = readFileSync('./auth.pug', 'utf8');
+let template = readFileSync('./main.pug', 'utf8');
 
 // input: content
-export default class AuthLayout extends Block {
+export default class MainLayout extends Block {
     constructor(props) {
-        super("section", props.className = 'auth');
+        super("main", props);
     };
     render() {
         return compile(template)(this.props);
