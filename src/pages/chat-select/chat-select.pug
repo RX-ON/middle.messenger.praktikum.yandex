@@ -1,16 +1,4 @@
-extends ../../layout/main/main
-
-block style
-    link(rel="stylesheet" href="/src/pages/chat-select/chat-select.scss")
-    link(rel="stylesheet" href="/src/modules/chats/chats.scss")
-    link(rel="stylesheet" href="/src/modules/message/message.scss")
-
-block script
-
-block content 
-    aside.list  
-        include ../../modules/chats/chats.pug
-
-    - const data = {src: '', label: 'Василий'}
-    .message-field
-        include ../../modules/message/message.pug
+aside.list  
+    |!{chatList}
+.message-field
+    |!{messageField}

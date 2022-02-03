@@ -1,3 +1,4 @@
+export default template = `
 header
     .wrapper
         .companion
@@ -21,3 +22,4 @@ footer
         .staple
         input.message_input(type="text" placeholder="Сообщение")
         .arrow
+`;

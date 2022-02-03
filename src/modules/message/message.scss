@@ -1,8 +1,4 @@
-$font_black_color: #1E1E1E;
-$my_message_color: #E4EDFD;
-$friend_message_color: #F8F8F8;
-$bg_gray_color: #FBFBFB;
-$gray-color: #999999;
+@import "/src/common/styles/vars.scss";
 
 .msg {
     height: 100vh;
@@ -43,6 +39,11 @@ $gray-color: #999999;
                 margin-left: 10px;
                 font-size: 13px;
                 font-weight: bold;
+            }
+            .three_dots {
+                background-image: url(../../../static/three_dots.svg);
+                width: 3px;
+                height: 16px;
             }
         }
     }
@@ -98,6 +99,16 @@ $gray-color: #999999;
                 padding-left: 20px;
                 margin-left: 10px;
                 margin-right: 10px;
+            }
+            .staple {
+                background-image: url(../../../static/staple.svg);
+                width: 32px;
+                height: 32px;
+            }
+            .arrow {
+                background-image: url(../../../static/arrow.svg);
+                width: 32px;
+                height: 28px;
             }
         }
     }
