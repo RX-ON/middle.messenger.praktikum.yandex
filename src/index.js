@@ -9,6 +9,7 @@ import MessageField from "../src/modules/message/message.js";
 import Button from "../src/pages/components/button/button.js";
 import Input from "../src/pages/components/input/input.js";
 import InfoInput from "../src/pages/components/info-input/info-input.js";
+import ErrorPage from "../src/pages/error-page/error-page.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -179,6 +180,30 @@ switch (path) {
 				content: new Button({
 					btnName: 'Суперкнопка!'
 				}).render()
+			})
+		);
+		break
+	};
+	case ('/error4'): {
+		renderPage(
+			'#app',
+			new ErrorPage({
+				data: {
+					code: 404,
+					description: 'Ошибка 404'
+				}
+			})
+		);
+		break
+	};
+	case ('/error5'): {
+		renderPage(
+			'#app',
+			new ErrorPage({
+				data: {
+					code: 500,
+					description: 'Ошибка 500'
+				}
 			})
 		);
 		break
