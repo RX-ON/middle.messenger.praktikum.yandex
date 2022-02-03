@@ -1,9 +1,4 @@
-$gray-color: #999999;
-$border_color: #EAEAEA;
-$font_black_color: #1E1E1E;
-$main_color: #3369F3;
-$font_white_color: white;
-
+@import "/src/common/styles/vars.scss";
 
 hr.border {
     width: 290px;

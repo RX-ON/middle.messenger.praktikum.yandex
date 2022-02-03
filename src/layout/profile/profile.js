@@ -1,4 +1,4 @@
-import Block from "../../common/scripts/modules/Block.js";
+import Block from "/src/common/scripts/modules/Block.js";
 import { compile } from "pug";
 import template from "./profile.template.js"
 import './profile.scss';

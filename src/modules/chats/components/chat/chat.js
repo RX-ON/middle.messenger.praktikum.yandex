@@ -1,12 +1,12 @@
 import Block from "/src/common/scripts/modules/Block.js";
 import { compile } from "pug";
-import template from "./main.template.js"
-import './main.scss';
+import template from "./chat.template.js"
+import './chat.scss';
 
-// input: content
-export default class MainLayout extends Block {
+// input: data -> id, src, lable, date, text, count
+export default class Chat extends Block {
     constructor(props) {
-        super("main", props);
+        super("div", props);
     };
     render() {
         return compile(template)(this.props);

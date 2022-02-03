@@ -1,3 +1,4 @@
+export default template = `
 hr.border(noshade)
 .chat(id=data.id)
     .img
@@ -10,3 +11,4 @@ hr.border(noshade)
         if data.count
             .notification
                 span.counter #{data.count}
+`;
