@@ -1,10 +1,4 @@
-// /* Общие стили */
-// @import url("/static/common.scss");
-// /* input component */
-// @import url("/src/pages/components/input/input.scss");
-// /* button component */
-// @import url("/src/pages/components/button/button.scss");
-
+@import "/src/common/styles/vars.scss";
 
 section.auth {
     width: 100%;

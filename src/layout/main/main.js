@@ -1,9 +1,7 @@
 import Block from "../../common/scripts/modules/Block.js";
 import { compile } from "pug";
-import { readFileSync } from "fs";
+import template from "./main.template.js"
 import './main.scss';
-
-let template = readFileSync('./main.pug', 'utf8');
 
 // input: content
 export default class MainLayout extends Block {
