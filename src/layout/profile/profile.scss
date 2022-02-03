@@ -1,15 +1,6 @@
-/* Общие стили */
-@import url("/static/common.scss");
-/* button component */
-@import url("/src/pages/components/button/button.scss");
+@import "/src/common/styles/vars.scss";
 
-$border_color: #EAEAEA;
-$bg_gray_color: #FBFBFB;
-
-
-
-body {
-    margin: 0;
+.wrapper {
     display: flex;
     justify-content: center;
     aside.back {
@@ -24,6 +15,9 @@ body {
         left: 0;
         .blue-arrow {
             transform: rotate(0.5turn);
+            background-image: url(../../../static/arrow.svg);
+            width: 28px;
+            height: 28px;
         }
     }
     main.content {
