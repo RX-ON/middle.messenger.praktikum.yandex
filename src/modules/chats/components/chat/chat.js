@@ -3,7 +3,7 @@ import { compile } from "pug";
 import template from "./chat.template.js"
 import './chat.scss';
 
-// input: data -> id, src, lable, date, text, count
+// input: chatsList[] -> data -> id, src, lable, date, text, count
 export default class Chat extends Block {
     constructor(props) {
         super("div", props);
