@@ -1,7 +1,4 @@
-$font_black_color: #1E1E1E;
-$border_color: #EAEAEA;
-$main_color: #3369F3;
-$red_color: #FF2F2F;
+@import "/src/common/styles/vars.scss";
 
 section.info {
     height: 100vh;
