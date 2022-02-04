@@ -4,6 +4,7 @@
     display: block;
     position: relative;
     label.name {
+        pointer-events: none;
         display: block;
         position: absolute;
         top: 9px;

@@ -20,6 +20,6 @@ footer
     hr.border
     .wrapper
         .staple
-        input.message_input(type="text" placeholder="Сообщение")
+        input.message_input(type="text" placeholder="Сообщение" name="message")
         .arrow
 `;

@@ -38,7 +38,7 @@ export default class Block {
         this._handlers = handlers;
 
 		Object.keys(handlers).forEach((handler) => {
-            console.log('add handler')
+            console.log('add handler', handler)
 			this._element.addEventListener(handler, handlers[handler])
 		})
 

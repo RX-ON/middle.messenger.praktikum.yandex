@@ -128,7 +128,7 @@ switch (path) {
 			new ErrorPage({
 				data: {
 					code: 404,
-					description: 'Ошибка 404'
+					description: 'Не туда попали'
 				}
 			})
 		);
@@ -140,7 +140,7 @@ switch (path) {
 			new ErrorPage({
 				data: {
 					code: 500,
-					description: 'Ошибка 500'
+					description: 'Мы уже фиксим'
 				}
 			})
 		);
@@ -154,11 +154,11 @@ switch (path) {
 					inputList: new Input({
 						inputList: [
 							{
-								class: 'login',
+								name: 'login',
 								text: 'Логин'
 							},
 							{
-								class: 'password',
+								name: 'password',
 								text: 'Пароль',
 								attributes: {
 									type: 'password',
