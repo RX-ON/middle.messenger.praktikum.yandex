@@ -18,8 +18,10 @@ section.history
         p.message_friend-message Lorem
 footer 
     hr.border
-    .wrapper
-        .staple
-        input.message_input(type="text" placeholder="Сообщение" name="message")
-        .arrow
+    form
+        span.error(class=data.errorClassName) #{data.errorText || 'Какая-то ошибка'}
+        .wrapper
+            .staple
+            input.message_input(type="text" placeholder="Сообщение" name="message")
+            button.arrow
 `;

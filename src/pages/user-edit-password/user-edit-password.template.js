@@ -3,5 +3,5 @@ export default template = `
     img.user-icon(src=src || "https://via.placeholder.com/150", alt="")
 form
     |!{inputList}
-|!{btn}
+    |!{btn}
 `;

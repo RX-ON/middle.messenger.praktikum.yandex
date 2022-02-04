@@ -18,7 +18,7 @@
         border: 0;
         color: $gray-color;
         font-size: 13px;
-        padding: 10px 0;
+        padding-top: 10px;
         &:disabled {
             color: $gray-color;
             background: $font_white_color;
@@ -27,5 +27,17 @@
     border-bottom: 1px solid $border_color;
     &:nth-last-child(-n+1) {
         border: 0;
+    }
+    .error {
+        display: block;
+        padding-top: 4px;
+        font-size: 8px;
+        color: $red_color;
+        opacity: 0;
+        transition: .2s;
+        
+        &.invalid {
+            opacity: 100%;
+        }
     }
 }

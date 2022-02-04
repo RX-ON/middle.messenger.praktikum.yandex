@@ -83,12 +83,11 @@
     }
     footer {
         .wrapper {
-            padding: 10px 20px 10px 20px;
+            padding: 0px 20px 10px;
             display: flex;
             flex-direction: row;
             align-items: center;
             input.message_input {
-                flex-grow: 1;
                 width: 100%;
                 min-height: 32px;
                 background: $bg_gray_color;
@@ -100,15 +99,30 @@
                 margin-left: 10px;
                 margin-right: 10px;
             }
+            
             .staple {
                 background-image: url(../../../static/staple.svg);
                 width: 32px;
                 height: 32px;
             }
-            .arrow {
+            button.arrow {
                 background-image: url(../../../static/arrow.svg);
                 width: 32px;
                 height: 28px;
+                border: none;
+                background-color: white;
+            }
+        }
+        .error {
+            display: flex;
+            padding: 0;
+            font-size: 8px;
+            color: $red_color;
+            opacity: 0;
+            transition: .2s;
+            justify-content: center;
+            &.invalid {
+                opacity: 100%;
             }
         }
     }

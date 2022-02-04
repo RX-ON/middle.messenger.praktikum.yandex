@@ -1,18 +1,20 @@
 export default () => {
-    console.log('ready')
-    const form = document.forms[0]
-    if(!form) {
+    const formsList = document.forms;
+    if(!formsList) {
         return;
     };
-    const inputsList = form.querySelectorAll('input');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const result = {};
-        inputsList.forEach(element => {
-            if(!element.value) return
-            result[element.name] = element.value;
+    for(let i = 0; i < formsList.length; i++) {
+        const form = formsList[i];
+        const inputsList = form.querySelectorAll('input');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const result = {};
+            inputsList.forEach(element => {
+                if(!element.value) return
+                result[element.name] = element.value;
+            });
+            if(Object.keys(result).length !== 0) console.log(result);
+            form.reset();
         });
-        if(Object.keys(result).length !== 0) console.log(result);
-        form.reset();
-    });
+    };
 };
