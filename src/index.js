@@ -10,6 +10,7 @@ import Button from "../src/pages/components/button/button.js";
 import Input from "../src/pages/components/input/input.js";
 import InfoInput from "../src/pages/components/info-input/info-input.js";
 import ErrorPage from "../src/pages/error-page/error-page.js";
+import LoginPage from "../src/pages/login/login.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -208,19 +209,57 @@ switch (path) {
 		);
 		break
 	};
+	case ('/login'): {
+		renderPage(
+			'#app',
+			new AuthLayout({
+				content: new LoginPage({
+					inputList: new Input({
+						inputList: [
+							{
+								class: 'login',
+								text: 'Логин'
+							},
+							{
+								class: 'password',
+								text: 'Пароль',
+								attributes: {
+									type: 'password',
+									autocomplete: 'on'
+								}
+							}
+						]
+					}).render(),
+					btn: new Button({
+						btnName: 'Авторизироваться'
+					}).render()
+				}).getContentString()
+			})
+		);
+		break
+	};
 	case ('/input'): {
 		renderPage(
 			'#app',
 			new MainLayout({
 				content: new Input({
-					data: {
-						name: 'password',
-						attributes: {type: 'password', autocomplete: 'on'},
-						text: 'Пароль',
-						errorText: 'Ошибка',
-						errorClassName: 'password-error',
-						fieldClassName: 'password-field'
-					}
+					inputList: [
+						{
+							name: 'password',
+							attributes: {type: 'password', autocomplete: 'on'},
+							text: 'Пароль',
+							errorText: 'Ошибка',
+							errorClassName: 'password-error',
+							fieldClassName: 'password-field'
+						},
+						{
+							name: 'name',
+							text: 'Имя',
+							errorText: 'Ошибка',
+							errorClassName: 'password-error',
+							fieldClassName: 'password-field'
+						}
+					]
 				}).render()
 			})
 		);

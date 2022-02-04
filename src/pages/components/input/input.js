@@ -3,7 +3,7 @@ import { compile } from "pug";
 import template from "./input.template.js"
 import './input.scss';
 
-// input: data -> name, attributes, text, errorText, errorClassName, fieldClassName
+// input: inputList[] -> data -> name, attributes, text, errorText, errorClassName, fieldClassName
 export default class Input extends Block {
     constructor(props) {
         super("div", props);
