@@ -13,6 +13,7 @@ import ErrorPage from "../src/pages/error-page/error-page.js";
 import LoginPage from "../src/pages/login/login.js";
 import RegistrationPage from "../src/pages/registration/registration.js";
 import UserProfilePage from "../src/pages/user-profile/user-profile.js";
+import UserEditProfilePage from "../src/pages/user-edit-profile/user-edit-profile.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -334,6 +335,41 @@ switch (path) {
 						data: {
 							src: "", 
 							disabled: true,
+							userData: {
+								email: "gm@gmail.com",
+								login: "Goodman",
+								first_name: "Гриша",
+								second_name: "Добров",
+								display_name: "gooD",
+								phone: "+7 (909) 345 67 12"
+							}
+						},
+						KEYS: {
+							email: "Почта",
+							login: "Логин",
+							first_name: "Имя",
+							second_name: "Фамилия",
+							display_name: "Имя в чате",
+							phone: "Телефон"
+						}
+					}).render()
+				}).getContentString()
+			})
+		);
+		break
+	};
+	case ('/user-edit-profile'): {
+		renderPage(
+			'#app',
+			new ProfileLayout({
+				content: new UserEditProfilePage({
+					src: '',
+					btn: new Button({
+						btnName: 'Сохранить'
+					}).render(),
+					inputList: new InfoInput({
+						data: {
+							src: "",
 							userData: {
 								email: "gm@gmail.com",
 								login: "Goodman",
