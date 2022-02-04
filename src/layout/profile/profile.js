@@ -2,11 +2,14 @@ import Block from "/src/common/scripts/modules/Block.js";
 import { compile } from "pug";
 import template from "./profile.template.js"
 import './profile.scss';
+import historyBack from '/src/common/scripts/utils/historyBack.js';
 
 // input: content + backLink
 export default class ProfileLayout extends Block {
     constructor(props) {
-        super("div", {...props, className: "wrapper"});
+        let { handlers = {} } = props;
+        const backButton = historyBack('.blue-arrow-back');
+        super("div", {...props, className: "wrapper", handlers: {...handlers, backButton}});
     };
     render() {
         return compile(template)(this.props);

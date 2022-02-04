@@ -15,12 +15,13 @@ section.error {
         text-align: center;
     }
 
-    a.back {
+    p.back {
         display: block;
         margin-top: 70px;
         font-size: 11px;
         color: $main_color;
         text-decoration: none;
         text-align: center;
+        cursor: pointer;
     }
 }

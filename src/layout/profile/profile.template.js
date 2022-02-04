@@ -1,7 +1,6 @@
 export default template = `
 aside.back
-    a(href="/") 
-        .blue-arrow
+    .blue-arrow-back
 main.content
     |!{content}
 `;
