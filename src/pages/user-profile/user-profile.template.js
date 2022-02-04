@@ -7,5 +7,5 @@ ul.form
 .actions 
     a(href="/") Изменить данные
     a(href="/") Изменить пароль
-    a(href="/") Выход
+    a(href="/login") Выход
 `;
