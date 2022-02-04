@@ -14,6 +14,7 @@ import LoginPage from "../src/pages/login/login.js";
 import RegistrationPage from "../src/pages/registration/registration.js";
 import UserProfilePage from "../src/pages/user-profile/user-profile.js";
 import UserEditProfilePage from "../src/pages/user-edit-profile/user-edit-profile.js";
+import UserEditPasswordPage from "../src/pages/user-edit-password/user-edit-password.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -386,6 +387,42 @@ switch (path) {
 							second_name: "Фамилия",
 							display_name: "Имя в чате",
 							phone: "Телефон"
+						}
+					}).render()
+				}).getContentString()
+			})
+		);
+		break
+	};
+	case ('/user-edit-password'): {
+		renderPage(
+			'#app',
+			new ProfileLayout({
+				content: new UserEditPasswordPage({
+					src: '',
+					btn: new Button({
+						btnName: 'Сохранить'
+					}).render(),
+					inputList: new InfoInput({
+						data: {
+							src: "",
+							type: "password",
+							userData: {
+								oldPassword: false,
+								newPassword: false,
+								repeatNewPassword: false
+							}
+						},
+						KEYS: {
+							email: "Почта",
+							login: "Логин",
+							first_name: "Имя",
+							second_name: "Фамилия",
+							display_name: "Имя в чате",
+							phone: "Телефон",
+							oldPassword: "Старый пароль",
+							newPassword: "Новый пароль",
+							repeatNewPassword: "Повторите новый пароль"
 						}
 					}).render()
 				}).getContentString()
