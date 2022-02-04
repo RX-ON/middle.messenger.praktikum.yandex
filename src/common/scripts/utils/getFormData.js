@@ -5,8 +5,7 @@ export default () => {
         return;
     };
     const inputsList = form.querySelectorAll('input');
-    const button = form.querySelector('button');
-    button.addEventListener('click', (event) => {
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
         const result = {};
         inputsList.forEach(element => {

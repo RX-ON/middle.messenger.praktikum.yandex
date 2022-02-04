@@ -5,7 +5,7 @@ span.name #{data.first_name}
 ul.form
     |!{inputList}
 .actions 
-    a(href="/") Изменить данные
-    a(href="/") Изменить пароль
+    a(href="/user-edit-profile") Изменить данные
+    a(href="/user-edit-password") Изменить пароль
     a(href="/login") Выход
 `;
