@@ -11,6 +11,7 @@ import Input from "../src/pages/components/input/input.js";
 import InfoInput from "../src/pages/components/info-input/info-input.js";
 import ErrorPage from "../src/pages/error-page/error-page.js";
 import LoginPage from "../src/pages/login/login.js";
+import RegistrationPage from "../src/pages/registration/registration.js";
 import renderPage from "../src/common/scripts/utils/renderPage.js";
  
 const path = window.location.pathname;
@@ -232,6 +233,30 @@ switch (path) {
 					}).render(),
 					btn: new Button({
 						btnName: 'Авторизироваться'
+					}).render()
+				}).getContentString()
+			})
+		);
+		break
+	};
+	case ('/registration'): {
+		renderPage(
+			'#app',
+			new AuthLayout({
+				content: new RegistrationPage({
+					inputList: new Input({
+						inputList: [
+							{name: 'email', text: 'Почта'},
+							{name: 'login', text: 'Логин'},
+							{name: 'first_name', text: 'Имя'},
+							{name: 'second_name', text: 'Фамилия'},
+							{name: 'phone', text: 'Телефон'},
+							{name: 'password', text: 'Пароль', attributes: {type: 'password', autocomplete: 'on'}},
+							{name: 'password_repeat', text: 'Пароль (ещё раз)', attributes: {type: 'password', autocomplete: 'on'}}
+						]
+					}).render(),
+					btn: new Button({
+						btnName: 'Зарегистрироваться'
 					}).render()
 				}).getContentString()
 			})
