@@ -30,8 +30,10 @@ export default () => {
                 if(!validCheck.validation) {
                     event.target.parentNode.lastChild.style.opacity = 1;
                     event.target.parentNode.lastChild.textContent = validCheck.errorText;
+                    event.target.dataset.valid = false;
                 } else {
                     event.target.parentNode.lastChild.style.opacity = 0;
+                    event.target.dataset.valid = true;
                 };
             };
         }, true);
