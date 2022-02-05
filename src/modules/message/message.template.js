@@ -22,6 +22,6 @@ footer
         span.error(class=data.errorClassName) #{data.errorText || 'Какая-то ошибка'}
         .wrapper
             .staple
-            input.message_input(type="text" placeholder="Сообщение" name="message")
+            input.message_input(data-valid="false" type="text" placeholder="Сообщение" name="message")
             button.arrow
 `;
