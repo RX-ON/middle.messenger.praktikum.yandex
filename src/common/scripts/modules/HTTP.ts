@@ -3,7 +3,7 @@ enum METHODS {
     POST = 'POST',
     PUT = 'PUT',
     DELETE = 'DELETE',
-};
+}
 
 
 function queryStringify(data: Record<string, any>): string {
@@ -44,7 +44,7 @@ export default class HTTPTransport {
     request = (url: string, options: Option = {}, timeout = 5000) => {
         const {headers = {}, method, data} = options;
 
-        return new Promise(function(resolve, reject) {
+        return new Promise((resolve, reject) => {
             if (!method) {
                 reject('No method');
                 return;

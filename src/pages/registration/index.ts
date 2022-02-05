@@ -1,7 +1,7 @@
-import AuthLayout from "../../layout/auth/auth";
-import RegistrationPage from "../../pages/registration/registration";
-import Input from "../../pages/components/input/input";
-import Button from "../../pages/components/button/button";
+import AuthLayout from '../../layout/auth/auth';
+import RegistrationPage from '../../pages/registration/registration';
+import Input from '../../pages/components/input/input';
+import Button from '../../pages/components/button/button';
 
 
 export default new AuthLayout({

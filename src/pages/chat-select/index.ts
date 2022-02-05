@@ -1,9 +1,8 @@
-import MainLayout from "../../layout/main/main";
-import ChatSelectPage from "../../pages/chat-select/chat-select";
-import Chat from "../../modules/chats/components/chat/chat";
-import ChatCollection from "../../modules/chats/chats";
-import MessageField from "../../modules/message/message";
-
+import MainLayout from '../../layout/main/main';
+import ChatSelectPage from '../../pages/chat-select/chat-select';
+import Chat from '../../modules/chats/components/chat/chat';
+import ChatCollection from '../../modules/chats/chats';
+import MessageField from '../../modules/message/message';
 
 
 export default new MainLayout({
@@ -37,10 +36,10 @@ export default new MainLayout({
                     },
                     {
                         id: 123,
-                        src: "https://via.placeholder.com/50",
-                        label: "Чат №1",
-                        text: "Тут есть какая-то информация, go",
-                        date: "ПН",
+                        src: 'https://via.placeholder.com/50',
+                        label: 'Чат №1',
+                        text: 'Тут есть какая-то информация, go',
+                        date: 'ПН',
                         count: 10
                     }
                 ]

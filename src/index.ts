@@ -1,14 +1,14 @@
-import renderPage from "./common/scripts/utils/renderPage";
-import MainLayout from "./layout/main/main";
+import renderPage from './common/scripts/utils/renderPage';
+import MainLayout from './layout/main/main';
 
-import chatListIndex from "../src/pages/chat-list/index"
-import chatSelectIndex from "../src/pages/chat-select/index"
-import errorIndex from "../src/pages/error-page/index"
-import loginIndex from "../src/pages/login/index"
-import registrationIndex from "../src/pages/registration/index"
-import userEditPasswordIndex from "../src/pages/user-edit-password/index"
-import userEditProfileIndex from "../src/pages/user-edit-profile/index"
-import userProfileIndex from "../src/pages/user-profile/index"
+import chatListIndex from '../src/pages/chat-list/index';
+import chatSelectIndex from '../src/pages/chat-select/index';
+import errorIndex from '../src/pages/error-page/index';
+import loginIndex from '../src/pages/login/index';
+import registrationIndex from '../src/pages/registration/index';
+import userEditPasswordIndex from '../src/pages/user-edit-password/index';
+import userEditProfileIndex from '../src/pages/user-edit-profile/index';
+import userProfileIndex from '../src/pages/user-profile/index';
  
 const path: string = window.location.pathname;
 
@@ -16,11 +16,11 @@ switch (path) {
 	case ('/chat-list'): {
 		renderPage('#app', chatListIndex);
 		break
-	};
+	}
 	case ('/chat-select'): {
 		renderPage('#app', chatSelectIndex);
 		break
-	};
+	}
 	case ('/error4'): {
 		renderPage(
 			'#app',
@@ -30,7 +30,7 @@ switch (path) {
 			})
 		);
 		break
-	};
+	}
 	case ('/error5'): {
 		renderPage(
 			'#app',
@@ -40,27 +40,27 @@ switch (path) {
 			})
 		);
 		break
-	};
+	}
 	case ('/login'): {
 		renderPage('#app', loginIndex);
 		break
-	};
+	}
 	case ('/registration'): {
 		renderPage('#app', registrationIndex);
 		break
-	};
+	}
 	case ('/user-profile'): {
 		renderPage('#app', userProfileIndex);
 		break
-	};
+	}
 	case ('/user-edit-profile'): {
 		renderPage('#app', userEditProfileIndex);
 		break
-	};
+	}
 	case ('/user-edit-password'): {
 		renderPage('#app', userEditPasswordIndex);
 		break
-	};
+	}
 	default: {
 		renderPage(
 			'#app',
@@ -81,5 +81,5 @@ switch (path) {
             })
 		);
 		break
-	};
-};
+	}
+}

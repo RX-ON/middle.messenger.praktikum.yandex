@@ -7,8 +7,8 @@ export default function renderPage(query: string, block: any) {
 		Object.values(handlers).forEach((handler) => {
 			if (typeof handler === 'function') {
 				handler();
-			};
+			}
 		});
-	};
+	}
     return root;
-};
+}

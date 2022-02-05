@@ -10,7 +10,8 @@
     "dev": "npx parcel ./src/index.pug -p 3000 --no-cache",
     "build": "npx parcel build src/pages/index/index.pug",
     "server": "node app.js",
-    "start": "npm run build && npm run server"
+    "start": "npm run build && npm run server",
+    "eslint": "eslint ./src --ext .js,.ts"
   },
   "keywords": [],
   "author": "Borodai Roman",
@@ -20,6 +21,8 @@
     "@parcel/transformer-pug": "^2.1.1",
     "@parcel/transformer-sass": "^2.1.1",
     "@types/pug": "^2.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
     "express": "^4.17.2",
     "parcel": "^2.1.1",
     "pug": "^3.0.2",

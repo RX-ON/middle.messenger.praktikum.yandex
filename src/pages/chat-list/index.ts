@@ -1,7 +1,7 @@
-import MainLayout from "../../layout/main/main";
-import ChatListPage from "../../pages/chat-list/chat-list";
-import Chat from "../../modules/chats/components/chat/chat";
-import ChatCollection from "../../modules/chats/chats";
+import MainLayout from '../../layout/main/main';
+import ChatListPage from '../../pages/chat-list/chat-list';
+import Chat from '../../modules/chats/components/chat/chat';
+import ChatCollection from '../../modules/chats/chats';
 
 
 export default new MainLayout({
@@ -35,10 +35,10 @@ export default new MainLayout({
                     },
                     {
                         id: 123,
-                        src: "https://via.placeholder.com/50",
-                        label: "Чат №1",
-                        text: "Тут есть какая-то информация, go",
-                        date: "ПН",
+                        src: 'https://via.placeholder.com/50',
+                        label: 'Чат №1',
+                        text: 'Тут есть какая-то информация, go',
+                        date: 'ПН',
                         count: 10
                     }
                 ]
