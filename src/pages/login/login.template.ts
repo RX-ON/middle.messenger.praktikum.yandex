@@ -1,5 +1,5 @@
 export default `
 .login
     |!{form}
-    a.create-acc(href="/src/pages/registration/registration.pug") Нет аккаунта?
+    a.create-acc(href="/pages/registration/registration.html") Нет аккаунта?
 `;

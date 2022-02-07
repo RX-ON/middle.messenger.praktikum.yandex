@@ -1,5 +1,5 @@
 export default `
 .registration
     |!{form}
-    a.log-in(href="/src/pages/login/login.pug") Войти
+    a.log-in(href="/pages/login/login.html") Войти
 `;
