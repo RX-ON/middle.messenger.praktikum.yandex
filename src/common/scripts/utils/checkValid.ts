@@ -7,6 +7,14 @@ export default () => {
     }
     for(let i = 0; i < formsList.length; i++) {
         const form: HTMLFormElement = formsList[i];
+        form.addEventListener('focus', (event:any) => {
+            if(event.target.tagName === 'INPUT') {
+                event.target.dataset.valid = true;
+                if(event.target.name === 'message') {
+                    event.target.parentNode.previousSibling.style.opacity = 0;
+                }
+            }
+        }, true);
         form.addEventListener('blur', (event:any) => {
             if(event.target.tagName === 'INPUT') {
                 const validCheck = validation(event.target.name, event.target.value);

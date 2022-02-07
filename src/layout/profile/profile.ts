@@ -14,8 +14,8 @@ export default class ProfileLayout extends Block {
         super('div', {
             ...props,
             className: 'wrapper',
-            handlers: {...handlers, backButton, getFormData, checkValid}}
-        );
+            handlers: {...handlers, backButton}
+        });
     }
     render() {
         return compile(template)(this.props);

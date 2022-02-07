@@ -1,6 +1,5 @@
 export default `
-h1.form-name Регистрация
-|!{inputList}
-|!{btn}
-a.log-in(href="/login") Войти
+.registration
+    |!{form}
+    a.log-in(href="/src/pages/login/login.pug") Войти
 `;

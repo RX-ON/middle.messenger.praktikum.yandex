@@ -1,4 +1,4 @@
-import Block from '../../../common/scripts/modules/Block';
+import Block from '../../common/scripts/modules/Block';
 import { compile } from 'pug';
 import template from './input.template';
 import './input.scss';

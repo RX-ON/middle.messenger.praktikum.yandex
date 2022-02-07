@@ -1,29 +1,11 @@
-import LoginPage from '../../pages/login/login';
+import checkValid from '../../common/scripts/utils/checkValid';
+import getFormData from '../../common/scripts/utils/getFormData';
+import renderPage from '../../common/scripts/utils/renderPage';
 import AuthLayout from '../../layout/auth/auth';
-import Input from '../../pages/components/input/input';
-import Button from '../../pages/components/button/button';
+import LoginPage from './login';
 
 
-export default new AuthLayout({
-    content: new LoginPage({
-        inputList: new Input({
-            inputList: [
-                {
-                    name: 'login',
-                    text: 'Логин'
-                },
-                {
-                    name: 'password',
-                    text: 'Пароль',
-                    attributes: {
-                        type: 'password',
-                        autocomplete: 'on'
-                    }
-                }
-            ]
-        }).render(),
-        btn: new Button({
-            btnName: 'Авторизироваться'
-        }).render()
-    }).getContentString()
-});
+renderPage('#app', new AuthLayout({
+    content: new LoginPage({}).render(),
+    handlers: {getFormData, checkValid}
+}));

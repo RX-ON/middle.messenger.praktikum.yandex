@@ -1,64 +1,92 @@
 import renderPage from './common/scripts/utils/renderPage';
 import MainLayout from './layout/main/main';
 
-import chatListIndex from '../src/pages/chat-list/index';
-import chatSelectIndex from '../src/pages/chat-select/index';
-import errorIndex from '../src/pages/error-page/index';
-import loginIndex from '../src/pages/login/index';
-import registrationIndex from '../src/pages/registration/index';
-import userEditPasswordIndex from '../src/pages/user-edit-password/index';
-import userEditProfileIndex from '../src/pages/user-edit-profile/index';
-import userProfileIndex from '../src/pages/user-profile/index';
+
+import ChatListPage from './pages/chat-list/chat-list';
+import ChatSelectPage from './pages/chat-select/chat-select';
+import getFormData from './common/scripts/utils/getFormData';
+import checkValid from './common/scripts/utils/checkValid';
+import ErrorPage404 from './pages/error-404/error-page';
+import ErrorPage500 from './pages/error-500/error-page';
+import historyBack from './common/scripts/utils/historyBack';
+import AuthLayout from './layout/auth/auth';
+import LoginPage from './pages/login/login';
+import RegistrationPage from './pages/registration/registration';
+import ProfileLayout from './layout/profile/profile';
+import UserProfilePage from './pages/user-profile/user-profile';
+import UserEditProfilePage from './pages/user-edit-profile/user-edit-profile';
+import UserEditPasswordPage from './pages/user-edit-password/user-edit-password';
  
 const path: string = window.location.pathname;
 
+
 switch (path) {
 	case ('/chat-list'): {
-		renderPage('#app', chatListIndex);
+		renderPage('#app', new MainLayout({
+			content: new ChatListPage({}).render(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	case ('/chat-select'): {
-		renderPage('#app', chatSelectIndex);
+		renderPage('#app', new MainLayout({
+			content: new ChatSelectPage({}).render(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	case ('/error4'): {
+		const backButton = historyBack();
 		renderPage(
-			'#app',
-			errorIndex({
-				code: 404,
-				description: 'Не туда попали'
+			'#app', new MainLayout({
+				content: new ErrorPage404({}).render(),
+				handlers: {backButton}
 			})
 		);
 		break
 	}
 	case ('/error5'): {
+		const backButton = historyBack();
 		renderPage(
-			'#app',
-			errorIndex({
-				code: 500,
-				description: 'Мы уже фиксим'
+			'#app', new MainLayout({
+				content: new ErrorPage500({}).render(),
+				handlers: {backButton}
 			})
 		);
 		break
 	}
 	case ('/login'): {
-		renderPage('#app', loginIndex);
+		renderPage('#app', new AuthLayout({
+			content: new LoginPage({}).render(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	case ('/registration'): {
-		renderPage('#app', registrationIndex);
+		renderPage('#app', new AuthLayout({
+			content: new RegistrationPage({}).render(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	case ('/user-profile'): {
-		renderPage('#app', userProfileIndex);
+		renderPage('#app', new ProfileLayout({
+			content: new UserProfilePage({}).getContentString()
+		}));
 		break
 	}
 	case ('/user-edit-profile'): {
-		renderPage('#app', userEditProfileIndex);
+		renderPage('#app', new ProfileLayout({
+			content: new UserEditProfilePage({}).getContentString(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	case ('/user-edit-password'): {
-		renderPage('#app', userEditPasswordIndex);
+		renderPage('#app', new ProfileLayout({
+			content: new UserEditPasswordPage({}).getContentString(),
+			handlers: {getFormData, checkValid}
+		}));
 		break
 	}
 	default: {

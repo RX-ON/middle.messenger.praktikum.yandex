@@ -1,12 +1,12 @@
 import Block from '../../common/scripts/modules/Block';
 import { compile } from 'pug';
-import template from './chats.template';
-import './chats.scss';
+import template from './button.template';
+import './button.scss';
 
-// input: content
-export default class ChatCollection extends Block {
+// input: btnName
+export default class Button extends Block {
     constructor(props: Record<string, any>) {
-        super('section', {...props, className: 'chats'});
+        super('div', props);
     }
     render() {
         return compile(template)(this.props);
