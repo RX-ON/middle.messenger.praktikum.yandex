@@ -83,7 +83,8 @@
     }
     footer {
         .wrapper {
-            padding: 0px 20px 10px;
+            // padding: 0px 20px 10px;
+            padding-bottom: 10px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -102,16 +103,19 @@
             
             .staple {
                 background-image: url(../../../static/staple.svg);
-                width: 32px;
-                height: 32px;
+                min-width: 32px;
+                min-height: 32px;
+                margin-left: 20px;
             }
             button.arrow {
+                min-width: 28px;
+                min-height: 28px;
                 background-image: url(../../../static/arrow.svg);
-                width: 32px;
-                height: 28px;
                 border: none;
                 background-color: white;
+                margin-right: 20px;
             }
+            
         }
         .error {
             display: flex;
