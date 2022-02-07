@@ -38,5 +38,5 @@ $ npm run start
 
 - [Макет в Figma](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1) (Пока взял стандартный)
 - [Netlify](https://vigilant-albattani-135a28.netlify.app/)
-- [GitHub](https://github.com/RX-ON/Messenger)
+- [PR](https://github.com/RX-ON/middle.messenger.praktikum.yandex/pull/2)
 
