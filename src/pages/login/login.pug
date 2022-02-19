@@ -1,22 +1,10 @@
-extends ../../layout/auth/auth
-
-block style
-    link(rel="stylesheet" href="/src/pages/login/login.scss")
-block content
-    form.login
-        h1.form-name Вход
-
-
-        - let fields = [{class: 'login', text: 'Логин'}, {class: 'password', text: 'Пароль', attributes: {type: 'password', autocomplete: 'on'}}]
-        each data in fields
-            include ../../pages/components/input/input.pug
-
-
-        - let btnName = 'Авторизироваться'
-        include ../../pages/components/button/button.pug
-
-
-        a.create-acc(href="/src/pages/registration/registration.pug") Нет аккаунта?
-            
-block script
-    script(src="./login.js" type="module")
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover")
+        title Messanger
+        link(rel="stylesheet" href="/src/common/styles/common.scss")
+    body
+        #app
+        script(type="module" src="index.ts")

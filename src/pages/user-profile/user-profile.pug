@@ -1,44 +1,10 @@
-extends ../../layout/profile/profile
-
-block style
-    link(rel="stylesheet" href="/src/pages/user-profile/user-profile.scss")
-    link(rel="stylesheet" href="/src/pages/components/info-input/info-input.scss")
-
-block script
-
-block content 
-    section.info
-        -
-            const data = {
-                src: "", 
-                disabled: true,
-                userData: {
-                    email: "gm@gmail.com",
-                    login: "Goodman",
-                    first_name: "Гриша",
-                    second_name: "Добров",
-                    display_name: "gooD",
-                    phone: "+7 (909) 345 67 12"
-                }
-            }
-            const KEYS = {
-                email: "Почта",
-                login: "Логин",
-                first_name: "Имя",
-                second_name: "Фамилия",
-                display_name: "Имя в чате",
-                phone: "Телефон"
-            }
-        .img
-            img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="")
-        
-        span.name #{data.userData.first_name}
-
-        ul.form
-            each value, key in data.userData
-                include ../components/info-input/info-input.pug
-
-        .actions 
-            a(href="/src/pages/user-edit-profile/user-edit-profile.pug") Изменить данные
-            a(href="/src/pages/user-edit-password/user-edit-password.pug") Изменить пароль
-            a(href="/src/pages/index/index.pug") Выход
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover")
+        title Messanger
+        link(rel="stylesheet" href="/src/common/styles/common.scss")
+    body
+        #app
+        script(type="module" src="index.ts")

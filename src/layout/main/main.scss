@@ -1,10 +1,1 @@
-/* Общие стили */
-@import url("/static/common.scss");
-/* chat component */
-@import url("/src/modules/chats/components/chat/chat.scss");
-
-
-
-body {
-    margin: 0;
-}
+@import "/src/common/styles/vars.scss";

@@ -1,25 +1,34 @@
 {
   "name": "messanger",
-  "version": "1.0.0",
-  "description": "",
-  "engines": {"node": ">=0.12"},
+  "version": "1.1.0",
+  "description": "This is a test project",
+  "engines": {
+    "node": ">=0.12"
+  },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "npx parcel ./src/pages/index/index.pug -p 3000 --no-cache",
-    "build": "npx parcel build src/pages/index/index.pug",
+    "dev": "npx parcel ./src/index.pug -p 3000 --no-cache",
+    "build": "npx parcel build ./src/index.pug",
     "server": "node app.js",
-    "start": "npm run build && npm run server"
+    "start": "npm run build && npm run server",
+    "eslint": "eslint ./src --ext .js,.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Borodai Roman",
   "license": "ISC",
   "devDependencies": {
     "@parcel/resolver-glob": "^2.1.1",
     "@parcel/transformer-pug": "^2.1.1",
     "@parcel/transformer-sass": "^2.1.1",
-    "autoprefixer": "^10.4.2",
-    "browserslist": "^4.19.1",
+    "@types/pug": "^2.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.10.2",
+    "@typescript-eslint/parser": "^5.10.2",
     "express": "^4.17.2",
-    "parcel": "^2.1.1"
+    "parcel": "^2.1.1",
+    "pug": "^3.0.2",
+    "stylelint": "^14.3.0",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-scss": "^4.1.0",
+    "typescript": "^4.5.5"
   }
 }

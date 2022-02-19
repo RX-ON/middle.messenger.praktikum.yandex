@@ -1,0 +1,43 @@
+@import "/src/common/styles/vars.scss";
+
+.info-field {
+    display: block;
+    position: relative;
+    label.name {
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        top: 9px;
+        font-size: 13px;
+        color: $font_black_color;
+        cursor: text;
+    }
+    input.data {
+        width: 100%;
+        text-align: right;
+        border: 0;
+        color: $gray-color;
+        font-size: 13px;
+        padding-top: 10px;
+        &:disabled {
+            color: $gray-color;
+            background: $font_white_color;
+        }
+    }
+    border-bottom: 1px solid $border_color;
+    &:nth-last-child(-n+1) {
+        border: 0;
+    }
+    .error {
+        display: block;
+        padding-top: 4px;
+        font-size: 8px;
+        color: $red_color;
+        opacity: 0;
+        transition: .2s;
+        
+        &.invalid {
+            opacity: 100%;
+        }
+    }
+}

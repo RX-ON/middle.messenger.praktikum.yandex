@@ -1,4 +1,5 @@
-$gray-color: #999999;
+@import "/src/common/styles/vars.scss";
+
 aside.list  {
     float: left;
 }
@@ -6,13 +7,15 @@ aside.list  {
 .message-field {
     height: 100vh;
     margin-left: 310px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    p.warning {
-        display: block;
-        margin: 0 auto;
-        font-size: 12px;
-        color: $gray-color;
+    &.empty {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        p.warning {
+            display: block;
+            margin: 0 auto;
+            font-size: 12px;
+            color: $gray-color;
+        }
     }
 }

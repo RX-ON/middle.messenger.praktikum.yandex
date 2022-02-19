@@ -6,8 +6,13 @@
 Проект разработан на стеке Pug-SCSS-Parcel
 Всё вновинку...
 
-Хотел и свой шаблонизатор и свой макет, но в данный момент нет на это времени.
-В будущем обязательно попробую написать свой шаблонизатор.
+Во втором спринте к основному стеку добавились следующие инструменты:
+
+- TypeScript
+- ESLint
+
+Для меня материал оказался достаточно сложным, плюс совмещать все это с работой вовсе не просто. Я очень сильно старался успеть к дедлайну... надеюсь, получилось.
+
 
 
 ## Команды для запуска
@@ -32,4 +37,4 @@ $ npm run start
 
 - [Макет в Figma](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1) (Пока взял стандартный)
 - [Netlify](https://vigilant-albattani-135a28.netlify.app/)
-- [PR](https://github.com/RX-ON/middle.messenger.praktikum.yandex/pull/1)
+- [PR](https://github.com/RX-ON/middle.messenger.praktikum.yandex/pull/2)

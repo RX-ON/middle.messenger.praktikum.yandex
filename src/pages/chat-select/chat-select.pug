@@ -1,16 +1,10 @@
-extends ../../layout/main/main
-
-block style
-    link(rel="stylesheet" href="/src/pages/chat-select/chat-select.scss")
-    link(rel="stylesheet" href="/src/modules/chats/chats.scss")
-    link(rel="stylesheet" href="/src/modules/message/message.scss")
-
-block script
-
-block content 
-    aside.list  
-        include ../../modules/chats/chats.pug
-
-    - const data = {src: '', label: 'Василий'}
-    .message-field
-        include ../../modules/message/message.pug
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover")
+        title Messanger
+        link(rel="stylesheet" href="/src/common/styles/common.scss")
+    body
+        #app
+        script(type="module" src="index.ts")

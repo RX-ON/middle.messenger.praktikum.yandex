@@ -1,0 +1,18 @@
+@import "/src/common/styles/vars.scss";
+
+form.registration {
+    margin:0px 30px;
+    display: flex;
+    flex-direction: column;
+
+    h1.form-name {
+        margin: 0 auto;
+        margin-bottom: 40px;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    
+    .btn {
+        margin-top: 47px;
+    }
+}
