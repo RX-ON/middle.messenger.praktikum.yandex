@@ -5,7 +5,6 @@ import './registration.scss';
 import RegistrationComponent from '../../components/registration-form/registration';
 import Input from '../../components/input/input';
 import Button from '../../components/button/button';
-
 // input: inputList, btn
 export default class RegistrationPage extends Block {
     constructor(props: Record<string, any>) {

@@ -1,12 +1,12 @@
-import checkValid from '../../common/scripts/utils/checkValid';
-import getFormData from '../../common/scripts/utils/getFormData';
-import renderPage from '../../common/scripts/utils/renderPage';
-import selectChat from '../../common/scripts/utils/selectChat';
-import MainLayout from '../../layout/main/main';
-import ChatListPage from './chat-list';
+import Router from '../../common/scripts/modules/Router';
 
-const chat = selectChat();
-renderPage('#app', new MainLayout({
-    content: new ChatListPage({}).render(),
-    handlers: {getFormData, checkValid, chat}
-}));
+
+const router = new Router('#app');
+
+export default function() {
+    const link = document.querySelector('.profile');
+    link?.addEventListener('click', (event) => {
+        event.preventDefault();
+        router.go('/settings');
+    });
+}

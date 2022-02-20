@@ -20,4 +20,7 @@ export default class ProfileLayout extends Block {
     render() {
         return compile(template)(this.props);
     }
+    show(): void {
+        this.getContent().style.display = 'flex';
+    }
 }

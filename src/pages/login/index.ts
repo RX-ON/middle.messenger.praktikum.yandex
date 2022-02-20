@@ -1,11 +1,12 @@
-import checkValid from '../../common/scripts/utils/checkValid';
-import getFormData from '../../common/scripts/utils/getFormData';
-import renderPage from '../../common/scripts/utils/renderPage';
-import AuthLayout from '../../layout/auth/auth';
-import LoginPage from './login';
+import Router from '../../common/scripts/modules/Router';
 
 
-renderPage('#app', new AuthLayout({
-    content: new LoginPage({}).render(),
-    handlers: {getFormData, checkValid}
-}));
+const router = new Router('#app');
+
+export default function() {
+    const link = document.querySelector('.create-acc');
+    link?.addEventListener('click', (event) => {
+        event.preventDefault();
+        router.go('/sign-up');
+    });
+}

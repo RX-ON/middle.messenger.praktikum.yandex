@@ -1,3 +1,9 @@
+import Router from '../modules/Router';
+
+
+const router = new Router('#app');
+
+
 export default (tag?: string) => {
     const searchTag = tag || '.chat';
     return function() {
@@ -5,7 +11,7 @@ export default (tag?: string) => {
         const chats: any = document.querySelectorAll(searchTag);
         chats.forEach((chat: any) => {
             chat.addEventListener('click', () => {
-                window.location.href = '/pages/chat-select/chat-select.html';
+                router.go('/messenger/chat');
             });
         })
     }
