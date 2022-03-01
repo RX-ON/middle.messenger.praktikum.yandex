@@ -1,11 +1,11 @@
-import checkValid from '../../common/scripts/utils/checkValid';
-import getFormData from '../../common/scripts/utils/getFormData';
-import renderPage from '../../common/scripts/utils/renderPage';
-import ProfileLayout from '../../layout/profile/profile';
-import UserEditProfilePage from './user-edit-profile';
+import Router from '../../common/scripts/modules/Router';
+import { userDataManagment } from '../../common/scripts/store/Actions';
 
+const router = new Router('#app');
 
-renderPage('#app', new ProfileLayout({
-    content: new UserEditProfilePage({}).getContentString(),
-    handlers: {getFormData, checkValid}
-}));
+export default function() {
+    const ava: any = document.querySelectorAll('img');
+    ava.addEventListener('click', (event: any) => {
+        //
+    });   
+}

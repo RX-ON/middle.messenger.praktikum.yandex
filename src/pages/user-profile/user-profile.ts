@@ -8,7 +8,6 @@ import InfoInput from '../../components/info-input/info-input';
 export default class UserProfilePage extends Block {
     constructor(props: Record<string, any>) {
         super('section', {
-            ...props,
             className: 'info',
             data: {
                 src: '',
@@ -35,7 +34,8 @@ export default class UserProfilePage extends Block {
                     display_name: 'Имя в чате',
                     phone: 'Телефон'
                 }
-            }).render()
+            }).render(),
+            ...props,
         });
     }
     render() {

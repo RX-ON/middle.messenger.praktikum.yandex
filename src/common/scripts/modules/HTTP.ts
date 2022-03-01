@@ -17,7 +17,7 @@ function queryStringify(data: Record<string, any>): string {
     }, '?');
 }
 
-type Option = {
+export type Option = {
     timeout?: number,
     headers?: Record<string, string>,
     method?: METHODS,
@@ -25,6 +25,8 @@ type Option = {
 };
 
 export default class HTTPTransport {
+    constructor(readonly _baseURL: string) {}
+    
     get = (url: string, options: Option = {}) => {
         return this.request(url, {...options, method: METHODS.GET}, options.timeout);
     };
@@ -43,6 +45,7 @@ export default class HTTPTransport {
 
     request = (url: string, options: Option = {}, timeout = 5000) => {
         const {headers = {}, method, data} = options;
+        url = `${this._baseURL}${url}`;
 
         return new Promise((resolve, reject) => {
             if (!method) {
@@ -70,13 +73,14 @@ export default class HTTPTransport {
         
             xhr.onabort = reject;
             xhr.onerror = reject;
-        
+            xhr.withCredentials = true;
             xhr.timeout = timeout;
             xhr.ontimeout = reject;
                 
             if (isGet || !data) {
                 xhr.send();
             } else {
+                xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify(data));
             }
         });

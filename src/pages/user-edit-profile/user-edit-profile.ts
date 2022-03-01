@@ -10,7 +10,6 @@ import InfoInput from '../../components/info-input/info-input';
 export default class UserEditProfilePage extends Block {
     constructor(props: Record<string, any>) {
         super('section', {
-            ...props,
             className: 'info',
             src: '',
             form: new UserEditComponent({
@@ -38,7 +37,8 @@ export default class UserEditProfilePage extends Block {
                         phone: 'Телефон'
                     }
                 }).render()
-            }).getContentString()
+            }).getContentString(),
+            ...props,
         });
     }
     render() {

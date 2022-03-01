@@ -1,3 +1,5 @@
+import { userDataManagment } from '../store/Actions'
+
 export default () => {
     const formsList = document.forms;
     if(!formsList) {
@@ -22,7 +24,7 @@ export default () => {
                 result[element.name] = element.value;
             });
             // eslint-disable-next-line no-console
-            if(Object.keys(result).length !== 0) console.log(result);
+            if(Object.keys(result).length !== 0) userDataManagment(result);
             form.reset();
         });
     }

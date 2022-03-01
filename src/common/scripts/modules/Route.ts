@@ -37,7 +37,8 @@ export default class Route {
             renderPage(this._props.rootQuery, this._block);
             return;
         }
-
+        console.log('------------------------', JSON.stringify(this._props.forRender.content))
+        // renderPage(this._props.rootQuery, this._block);
         this._block.show();
     }
 }

@@ -119,6 +119,7 @@ export default class Block {
         this._removeHandlers();
         this._addHandlers();
         this._element.innerHTML = block;
+        console.log(this._element.innerHTML);
     }
    
     render(): string {
