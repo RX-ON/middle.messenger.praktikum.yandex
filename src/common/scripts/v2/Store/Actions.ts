@@ -23,7 +23,6 @@ const signIn = (data: any) => {
                 console.log('Кладем в стор', JSON.parse(response.response));
                 store.set('user', JSON.parse(response.response));
                 chatsAPI.getChat()?.then((response: any) => {
-                    console.log('Кладем в стор чаты', JSON.parse(response.response));
                     store.set('chats', JSON.parse(response.response));
                     router.go('/messenger');
                 })
@@ -37,13 +36,13 @@ const signIn = (data: any) => {
 
 const changeProfile = (data: any) => {
     if(window.location.pathname !== '/settings/edit-profile') return
-    console.log('input', data)
     userAPI.changeProfile(data)?.then((response: any) => {
         // eslint-disable-next-line no-console
         console.log('Кладем в стор', JSON.parse(response.response));
         store.set('user', JSON.parse(response.response));
         router.go('/settings')
     }).catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error)
     });
 }
@@ -51,9 +50,9 @@ const changeProfile = (data: any) => {
 const changePassword = (data: any) => {
     if(window.location.pathname !== '/settings/edit-password') return
     userAPI.changePassword(data)?.then(() => {
-        //store.set('user', {...store.getState()['user'], password: data.newPassword});
         router.go('/settings')
     }).catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error)
     });
 }
@@ -61,15 +60,9 @@ const changePassword = (data: any) => {
 const signUp = (data: any) => {
     if(window.location.pathname !== '/sign-up') return
     authAPI.signUp(data)?.then((response) => {
-        // eslint-disable-next-line no-console
-        console.log(response); // id
         authAPI.getUserInfo()?.then((response: any) => {
-            // eslint-disable-next-line no-console
-            console.log(response); // user: {}
             if (response.status === 200) {
                 authAPI.getUserInfo()?.then((response: any) => {
-                    // eslint-disable-next-line no-console
-                    console.log(response); // user
                     store.set('user', JSON.parse(response.response));
                     router.go('/settings');
                 })
@@ -85,15 +78,12 @@ const logout = () => {
     authAPI.getUserInfo()?.then((response: any) => {
         if (response.status === 200) {
             authAPI.logout()?.then((response) => {
-                // eslint-disable-next-line no-console
                 if(store.getState()['selectChat'] && store.getState()['selectChat'].socket) {  // закрываем сокет
                     if(store.getState()['selectChat'].socket.readyState) {
-                        console.log('CLOSE SOCKET');
                         store.getState()['selectChat'].socket.close();
                     }
                 }
                 store.removeState();
-                console.log(response);
             })
         }
     })
@@ -102,21 +92,18 @@ const logout = () => {
 const changeAvatar = (data: FormData) => {
     userAPI.changeAvatar(data)?.then((response: any) => {
         store.set('user', {...store.getState()['user'], avatar: JSON.parse(response.response).avatar});
-        // console.log(JSON.parse(response.response).avatar);
-        // console.log(store.getState()['user']);
     })
 }
 
 const createChat = (data: any) => {
     chatsAPI.createChat(data)?.then((response: any) => {
         chatsAPI.getChat()?.then((response: any) => {
-            console.log('Обновляем чаты', JSON.parse(response.response));
             store.set('chats', JSON.parse(response.response));
         })
+        // eslint-disable-next-line no-console
         console.log(response)
     })
 }
-
 
 
 const addUserChat = () => {
@@ -143,21 +130,21 @@ const addUserChat = () => {
             submit: (e: any) => {
                 e.preventDefault()
                 const form = document.getElementById('pop10');
-                const input = form?.querySelector('input');
-                console.log('Добавляем', input.value)
+                const input: any = form?.querySelector('input');
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
                     if(JSON.parse(response.response)[0]) {
                         const userId = JSON.parse(response.response)[0].id;
                         chatsAPI.addUser({users: [userId], chatId: store.getState()['selectChat'].id})?.then((response: any) => {
+                            // eslint-disable-next-line no-console
                             console.log(response.response);
                         })
                         document.querySelector('.popup')?.remove()
                     } else {
+                        // eslint-disable-next-line no-console
                         console.log('Не найден');
                         return
                     }
                 })
-                // Actions.createChat({title: input?.value})
             }
         }
     }))
@@ -187,33 +174,30 @@ const removeUserChat = () => {
             submit: (e: any) => {
                 e.preventDefault()
                 const form = document.getElementById('pop10');
-                const input = form?.querySelector('input');
-                console.log('Удаляем', input.value)
+                const input: any = form?.querySelector('input');
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
                     if(JSON.parse(response.response)[0]) {
                         const userId = JSON.parse(response.response)[0].id;
                         chatsAPI.deleteUser({users: [userId], chatId: store.getState()['selectChat'].id})?.then((response: any) => {
+                            // eslint-disable-next-line no-console
                             console.log(response.response);
                         })
                         document.querySelector('.popup')?.remove()
                     } else {
+                        // eslint-disable-next-line no-console
                         console.log('Не найден');
                         return
                     }
                 })
-                // Actions.createChat({title: input?.value})
             }
         }
     }))
 }
 
 const deleteChat = () => {
-    console.log('Удаляем чат')
     chatsAPI.deleteChat({chatId: store.getState()['selectChat'].id})?.then((response: any) => {
-        console.log(response.response);
         store.set('selectChat', {});
         chatsAPI.getChat()?.then((response: any) => {
-            console.log('Обновляем чаты', JSON.parse(response.response));
             store.set('chats', JSON.parse(response.response));
         })
         router.go('/messenger');
@@ -225,7 +209,6 @@ const updateChats = () => {
         if(store.getState()['user']) {
             chatsAPI.getChat()?.then((response: any) => {
                 if(isEqual(store.getState()['chats'], JSON.parse(response.response))) {
-                    console.log('Обновляем чаты', JSON.parse(response.response));
                     store.set('chats', JSON.parse(response.response));
                 }
             })
@@ -244,41 +227,41 @@ const takeHistory = (socket: any) => {
     }else{
         socket.send(JSON.stringify({content: '0', type: 'get old',}));
         chatsAPI.getChat()?.then((response: any) => {
-            console.log('Обновляем чаты', JSON.parse(response.response));
             store.set('chats', JSON.parse(response.response));
         })
     }
 }
 
 const startDialog = () => {
-    console.log('start dialog');
     const userId = store.getState()['user'].id;
     const chatId = store.getState()['selectChat'].id;
     const token = store.getState()['selectChat'].token;
     const socket = new WebSocket(`wss://ya-praktikum.tech/ws/chats/${userId}/${chatId}/${token}`);
     store.set('selectChat', {...store.getState()['selectChat'], socket: socket})
-    // получить старые сообщения
-    // socket.send(JSON.stringify({content: '0', type: 'get old',})); 
     store.set('dialog', [])
     takeHistory(socket);
     pingWS();
     
 
     socket.addEventListener('open', () => {
+        // eslint-disable-next-line no-console
         console.log('Соединение установлено');
     });
       
     socket.addEventListener('close', event => {
         if (event.wasClean) {
+            // eslint-disable-next-line no-console
             console.log('Соединение закрыто чисто');
         } else {
+            // eslint-disable-next-line no-console
             console.log('Обрыв соединения');
         }
-    
+        // eslint-disable-next-line no-console
         console.log(`Код: ${event.code} | Причина: ${event.reason}`);
     });
     
     socket.addEventListener('message', event => {
+        // eslint-disable-next-line no-console
         console.log('Получены данные', event.data);
         let msgClass = '';
         const result: any = [];
@@ -300,27 +283,23 @@ const startDialog = () => {
         store.emit(Store.EVENT_UPDATE);
     });
 
-    socket.addEventListener('error', event => {
+    socket.addEventListener('error', (event: any) => {
+        // eslint-disable-next-line no-console
         console.log('Ошибка', event.message);
     }); 
 }
 
 const connectChat = (id: any) => {
-    // console.log(store.getState()['selectChat'].id, id)
     if(store.getState()['selectChat'] && store.getState()['selectChat'].socket) {  // закрываем сокет
         if(store.getState()['selectChat'].socket.readyState) {
-            console.log('CLOSE SOCKET');
             store.getState()['selectChat'].socket.close();
         }
         store.set('selectChat', {});
-        // if(store.getState()['selectChat'].id.toString() === id) return
     }
 
     let result = {};
     chatsAPI.getToken(id)?.then((response: any) => {
-        console.log(JSON.parse(response.response));
         store.set('selectChat', {token: JSON.parse(response.response).token, ...result});
-        console.log('запускаем новый сокет')
         startDialog();
         router.go('/messenger/chat');
     });
@@ -337,7 +316,6 @@ const sendMessage = (msg: string) => {
         content: msg,
         type: 'message',
     }));
-    // updateChats();
 }
 
 const pingWS = () => {

@@ -17,7 +17,7 @@ import Store from './common/scripts/v2/Store';
 // import ErrorPage404 from './pages/error-404/error-page';
 // import ErrorPage500 from './pages/error-500/error-page';
 
-window.AppStore = Store;
+// window.AppStore = Store;
 
 const router = new Router('#app');
 
