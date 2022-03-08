@@ -1,18 +1,12 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './main.template';
 import './main.scss';
-// import getFormData from '../../common/scripts/utils/getFormData';
-// import checkValid from '../../common/scripts/utils/checkValid';
+import { Actions } from '../../common/scripts/v2/Store';
+import { authAPI } from '../../common/scripts/api/AuthAPI';
 
 // input: content
 export default class MainLayout extends Block {
-    constructor(props: Record<string, any>) {
-        // const { handlers = {} } = props;
-        // super('main', {...props, handlers: {...handlers, getFormData, checkValid}});
-        super('main', props);
-    }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

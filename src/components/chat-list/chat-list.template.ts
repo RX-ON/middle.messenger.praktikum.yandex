@@ -4,4 +4,5 @@ a.profile(href="/settings")
 form
     input.search(data-valid="true" type="text" placeholder="Поиск" name="search")
 |!{content}
+|!{btn}
 `;

@@ -43,6 +43,10 @@ hr.border {
             font-size: 13px;
             color: $font_black_color;
             font-weight: bold;
+            max-width: 150px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
         }
         
         span.date {

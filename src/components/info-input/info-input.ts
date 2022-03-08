@@ -1,14 +1,10 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './info-input.template';
 import './info-input.scss';
 
-// input: btnName
+// input: content
 export default class InfoInput extends Block {
-    constructor(props: Record<string, any>) {
-        super('div', props);
-    }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

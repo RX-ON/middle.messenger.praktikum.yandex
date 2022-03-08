@@ -1,6 +1,7 @@
 export default `
 .img
-    img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="")
+    img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="", data-photo)
+    p(data-photo) Загрузить
 span.name #{data.first_name}
 ul.form
     |!{inputList}

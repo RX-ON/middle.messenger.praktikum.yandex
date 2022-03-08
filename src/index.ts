@@ -1,63 +1,61 @@
-import renderPage from './common/scripts/utils/renderPage';
-import MainLayout from './layout/main/main';
-
-
-import ChatListPage from './pages/chat-list/chat-list';
-import ChatSelectPage from './pages/chat-select/chat-select';
-import getFormData from './common/scripts/utils/getFormData';
-import checkValid from './common/scripts/utils/checkValid';
-import ErrorPage404 from './pages/error-404/error-page';
-import ErrorPage500 from './pages/error-500/error-page';
-import historyBack from './common/scripts/utils/historyBack';
+// import renderDOM from './common/scripts/v2/utils/renderDOM';
+import Button from './components/button/button';
+import TesPage from './pages/tes/tesPage';
+import Router from './common/scripts/v2/Router';
+import ChatListPage from './pages/chat-list';
+import ChatSelectPage from './pages/chat-select';
 import AuthLayout from './layout/auth/auth';
 import LoginPage from './pages/login/login';
 import RegistrationPage from './pages/registration/registration';
-import ProfileLayout from './layout/profile/profile-connect';
-import UserProfilePage from './pages/user-profile/user-profile-connect';
-import UserEditProfilePage from './pages/user-edit-profile/user-edit-profile-connect';
+import ProfileLayout from './layout/profile/profile';
 import UserEditPasswordPage from './pages/user-edit-password/user-edit-password';
+import UserProfilePage from './pages/user-profile';
+import UserEditProfilePage from './pages/user-edit-profile';
+import MainLayout from './layout/main/main';
+import Store from './common/scripts/v2/Store';
 
-import loginPageLogic from './pages/login/index'
-import registrationPageLogic from './pages/registration/index'
-import profilePageLogic from './pages/user-profile/index'
-import chatListPageLogic from './pages/chat-list/index'
+// import ErrorPage404 from './pages/error-404/error-page';
+// import ErrorPage500 from './pages/error-500/error-page';
 
-import Router from './common/scripts/modules/Router';
-import selectChat from './common/scripts/utils/selectChat';
-import Store from './common/scripts/store/Store';
+window.AppStore = Store;
 
 const router = new Router('#app');
-const chat = selectChat();
-
-window.myAppStore = new Store();
 
 router
-	.use('/', AuthLayout, {
-		content: new LoginPage({}).render(),
-		handlers: {getFormData, checkValid, loginPageLogic}
+	.use('/test', TesPage, 'div', {
+		title: 'Надеюсь, это работает',
+        cnt: new Button(
+            'div',
+            {
+                btn: 'second_btn',
+                btnName: 'Вторая кнопка'
+            }
+        )
 	})
-	.use('/sign-up', AuthLayout, {
-		content: new RegistrationPage({}).render(),
-		handlers: {getFormData, checkValid, registrationPageLogic}
-	})
-	.use('/settings', ProfileLayout, {
-		content: new UserProfilePage({}).getContentString(),
-		handlers: {profilePageLogic}
-	})
-	.use('/settings/edit-password', ProfileLayout, {
-		content: new UserEditPasswordPage({}).getContentString(),
-		handlers: {getFormData, checkValid}
-	})
-	.use('/settings/edit-profile', ProfileLayout, {
-		content: new UserEditProfilePage({}).getContentString(),
-		handlers: {getFormData, checkValid}
-	})
-	.use('/messenger', MainLayout, {
-		content: new ChatListPage({}).render(),
-		handlers: {getFormData, checkValid, chat, chatListPageLogic}
-	})
-	.use('/messenger/chat', MainLayout, {
-		content: new ChatSelectPage({}).render(),
-		handlers: {getFormData, checkValid, chat, chatListPageLogic}
-	})
+	.use('/', AuthLayout, 'section', {
+        className: 'auth',
+        content: new LoginPage('div', {})
+    })
+	.use('/sign-up', AuthLayout, 'section', {
+        className: 'auth',
+        content: new RegistrationPage('div', {})
+    })
+	.use('/settings', ProfileLayout, 'div', {
+        className: 'wrapper',
+        content: new UserProfilePage('section', {})
+    })
+    .use('/settings/edit-password', ProfileLayout, 'div', {
+        className: 'wrapper',
+        content: new UserEditPasswordPage('section', {})
+    })
+    .use('/settings/edit-profile', ProfileLayout, 'div', {
+        className: 'wrapper',
+        content: new UserEditProfilePage('section', {})
+    })
+    .use('/messenger', MainLayout, 'div', {
+        content: new ChatListPage('div', {})
+    })
+    .use('/messenger/chat', MainLayout, 'div', {
+        content: new ChatSelectPage('div', {})
+    })
 	.start();

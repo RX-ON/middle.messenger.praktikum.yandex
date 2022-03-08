@@ -6,6 +6,7 @@ section.chats {
     height: 100vh;
     border-right: 1px solid $border_color;
     padding-top: 21px;
+    position: relative;
 
     a.profile {
         display: block;
@@ -27,6 +28,12 @@ section.chats {
         font-size: 12px;
         color: $gray-color;
         text-align: center;
+    }
+
+    button {
+        position: absolute;
+        bottom: 5%;
+        margin-left: 15px;
     }
 }
 

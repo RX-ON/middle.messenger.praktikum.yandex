@@ -1,4 +1,4 @@
-import HTTPTransport, { Option } from '../modules/HTTP';
+import HTTPTransport, { Option } from '../v2/HTTP';
 
 const chatAPIInstance = new HTTPTransport('https://ya-praktikum.tech/api/v2');
 
