@@ -4,4 +4,5 @@ export default `
     form(id=id)
         |!{content}
         |!{btn}
+    span(class='error-form') Какая-то ошибка
 `;

@@ -1,3 +1,5 @@
+@import "/src/common/styles/vars.scss";
+
 .popup {
     position: absolute;
     top: 0;
@@ -39,5 +41,18 @@
                 top: 32px;
             }
         }
+    }
+}
+
+.error-form {
+    display: block;
+    padding-top: 4px;
+    font-size: 8px;
+    color: $red_color;
+    opacity: 0;
+    transition: .2s;
+    text-align: center;
+    &.invalid {
+        opacity: 100%;
     }
 }

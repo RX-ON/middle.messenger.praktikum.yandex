@@ -60,7 +60,6 @@ export default class LoginPage extends Block {
     }
     componentDidMount() {
         checkValid();
-        // Actions.logout();   // чтобы при рендере автоматом выходить с учетки - работает, надо добавить првоерку: есть пользователь или нет
         getFormData(Actions.signIn);
         return '';
 	}

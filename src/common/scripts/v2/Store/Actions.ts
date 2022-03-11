@@ -13,6 +13,8 @@ const store = new Store();
 const router = new Router('#app');
 
 const signIn = (data: any) => {
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
     if(window.location.pathname !== '/') return
     authAPI.signIn(data)?.then((response: any) => {
         // eslint-disable-next-line no-console
@@ -28,49 +30,66 @@ const signIn = (data: any) => {
                 })
             })
         } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
             // eslint-disable-next-line no-console
-            console.log(JSON.parse(response.response).reason)
+            // console.log(JSON.parse(response.response).reason)
         }
     })
 }
 
 const changeProfile = (data: any) => {
     if(window.location.pathname !== '/settings/edit-profile') return
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
     userAPI.changeProfile(data)?.then((response: any) => {
-        // eslint-disable-next-line no-console
-        console.log('Кладем в стор', JSON.parse(response.response));
-        store.set('user', JSON.parse(response.response));
-        router.go('/settings')
-    }).catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error)
-    });
+        if(response.status === 200) {
+            // eslint-disable-next-line no-console
+            console.log('Кладем в стор', JSON.parse(response.response));
+            store.set('user', JSON.parse(response.response));
+            router.go('/settings')
+        } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
+        }
+    })
 }
 
 const changePassword = (data: any) => {
     if(window.location.pathname !== '/settings/edit-password') return
-    userAPI.changePassword(data)?.then(() => {
-        router.go('/settings')
-    }).catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error)
-    });
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
+    userAPI.changePassword(data)?.then((response: any) => {
+        if(response.status === 200) {
+            router.go('/settings')
+        } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
+        }
+    })
 }
 
 const signUp = (data: any) => {
     if(window.location.pathname !== '/sign-up') return
-    authAPI.signUp(data)?.then((response) => {
-        authAPI.getUserInfo()?.then((response: any) => {
-            if (response.status === 200) {
-                authAPI.getUserInfo()?.then((response: any) => {
-                    store.set('user', JSON.parse(response.response));
-                    router.go('/settings');
-                })
-            } else {
-                // eslint-disable-next-line no-console
-                console.log(JSON.parse(response.response).reason)
-            }
-        })
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
+    authAPI.signUp(data)?.then((response: any) => {
+        if (response.status === 200) {
+            authAPI.getUserInfo()?.then((response: any) => {
+                if (response.status === 200) {
+                    authAPI.getUserInfo()?.then((response: any) => {
+                        store.set('user', JSON.parse(response.response));
+                        router.go('/settings');
+                    })
+                } else {
+                    errorTextLabel.textContent = JSON.parse(response.response).reason;
+                    errorTextLabel?.classList.add('invalid');
+                }
+            })
+        } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
+        }
     })
 }
 
@@ -90,18 +109,32 @@ const logout = () => {
 }
 
 const changeAvatar = (data: FormData) => {
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
     userAPI.changeAvatar(data)?.then((response: any) => {
-        store.set('user', {...store.getState()['user'], avatar: JSON.parse(response.response).avatar});
+        if(response.status === 200) {
+            store.set('user', {...store.getState()['user'], avatar: JSON.parse(response.response).avatar});
+        } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
+        }
     })
 }
 
 const createChat = (data: any) => {
+    const errorTextLabel: any = document.querySelector('.error-form');
+    errorTextLabel?.classList.remove('invalid');
     chatsAPI.createChat(data)?.then((response: any) => {
-        chatsAPI.getChat()?.then((response: any) => {
-            store.set('chats', JSON.parse(response.response));
-        })
-        // eslint-disable-next-line no-console
-        console.log(response)
+        if(response.status === 200) {
+            chatsAPI.getChat()?.then((response: any) => {
+                store.set('chats', JSON.parse(response.response));
+            })
+            // eslint-disable-next-line no-console
+            console.log(response)
+        } else {
+            errorTextLabel.textContent = JSON.parse(response.response).reason;
+            errorTextLabel?.classList.add('invalid');
+        }
     })
 }
 
@@ -129,6 +162,8 @@ const addUserChat = () => {
         events: {
             submit: (e: any) => {
                 e.preventDefault()
+                const errorTextLabel: any = document.querySelector('.error-form');
+                errorTextLabel?.classList.remove('invalid');
                 const form = document.getElementById('pop10');
                 const input: any = form?.querySelector('input');
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
@@ -140,6 +175,8 @@ const addUserChat = () => {
                         })
                         document.querySelector('.popup')?.remove()
                     } else {
+                        errorTextLabel.textContent = 'Не найден';
+                        errorTextLabel?.classList.add('invalid');
                         // eslint-disable-next-line no-console
                         console.log('Не найден');
                         return
@@ -173,6 +210,8 @@ const removeUserChat = () => {
         events: {
             submit: (e: any) => {
                 e.preventDefault()
+                const errorTextLabel: any = document.querySelector('.error-form');
+                errorTextLabel?.classList.remove('invalid');
                 const form = document.getElementById('pop10');
                 const input: any = form?.querySelector('input');
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
@@ -184,6 +223,8 @@ const removeUserChat = () => {
                         })
                         document.querySelector('.popup')?.remove()
                     } else {
+                        errorTextLabel.textContent = 'Не найден';
+                        errorTextLabel?.classList.add('invalid');
                         // eslint-disable-next-line no-console
                         console.log('Не найден');
                         return

@@ -13,3 +13,16 @@
         margin-top: 14px;
     }
 }
+
+.error-form {
+    display: block;
+    padding-top: 4px;
+    font-size: 8px;
+    color: $red_color;
+    opacity: 0;
+    transition: .2s;
+    margin: 0 auto;
+    &.invalid {
+        opacity: 100%;
+    }
+}

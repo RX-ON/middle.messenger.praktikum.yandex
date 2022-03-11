@@ -8,7 +8,7 @@ import AuthLayout from './layout/auth/auth';
 import LoginPage from './pages/login/login';
 import RegistrationPage from './pages/registration/registration';
 import ProfileLayout from './layout/profile/profile';
-import UserEditPasswordPage from './pages/user-edit-password/user-edit-password';
+import UserEditPasswordPage from './pages/user-edit-password';
 import UserProfilePage from './pages/user-profile';
 import UserEditProfilePage from './pages/user-edit-profile';
 import MainLayout from './layout/main/main';
