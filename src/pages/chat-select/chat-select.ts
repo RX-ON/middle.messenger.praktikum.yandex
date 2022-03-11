@@ -8,10 +8,7 @@ import Msg from '../../components/msg/msg';
 import Button from '../../components/button/button';
 import Dropdown from '../../components/dropdown/dropdown';
 import Store, { Actions } from '../../common/scripts/v2/Store';
-import getFormData from '../../common/scripts/v2/utils/getFormData';
-import isEqual from '../../common/scripts/v2/utils/isEqual';
 
-// input: chatList, messageField
 export default class ChatSelectPage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {
@@ -68,7 +65,6 @@ export default class ChatSelectPage extends Block {
     }
     componentDidMount(): string {
         Actions.updateChats();
-        // if(Store.getState()['selectChat'])
         Store.getState()['selectChat'].socket.readyState == undefined ? Actions.connectChat(Store.getState()['selectChat'].id.toString()) : '';
         return '';
     }

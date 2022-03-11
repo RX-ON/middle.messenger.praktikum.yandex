@@ -1,4 +1,3 @@
-// import renderDOM from './common/scripts/v2/utils/renderDOM';
 import Button from './components/button/button';
 import TesPage from './pages/tes/tesPage';
 import Router from './common/scripts/v2/Router';
@@ -12,12 +11,6 @@ import UserEditPasswordPage from './pages/user-edit-password';
 import UserProfilePage from './pages/user-profile';
 import UserEditProfilePage from './pages/user-edit-profile';
 import MainLayout from './layout/main/main';
-import Store from './common/scripts/v2/Store';
-
-// import ErrorPage404 from './pages/error-404/error-page';
-// import ErrorPage500 from './pages/error-500/error-page';
-
-// window.AppStore = Store;
 
 const router = new Router('#app');
 

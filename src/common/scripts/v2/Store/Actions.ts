@@ -17,12 +17,8 @@ const signIn = (data: any) => {
     errorTextLabel?.classList.remove('invalid');
     if(window.location.pathname !== '/') return
     authAPI.signIn(data)?.then((response: any) => {
-        // eslint-disable-next-line no-console
-        console.log(response);
         if (response.status === 200) {
             authAPI.getUserInfo()?.then((response: any) => {
-                // eslint-disable-next-line no-console
-                console.log('Кладем в стор', JSON.parse(response.response));
                 store.set('user', JSON.parse(response.response));
                 chatsAPI.getChat()?.then((response: any) => {
                     store.set('chats', JSON.parse(response.response));
@@ -32,8 +28,6 @@ const signIn = (data: any) => {
         } else {
             errorTextLabel.textContent = JSON.parse(response.response).reason;
             errorTextLabel?.classList.add('invalid');
-            // eslint-disable-next-line no-console
-            // console.log(JSON.parse(response.response).reason)
         }
     })
 }
@@ -44,8 +38,6 @@ const changeProfile = (data: any) => {
     errorTextLabel?.classList.remove('invalid');
     userAPI.changeProfile(data)?.then((response: any) => {
         if(response.status === 200) {
-            // eslint-disable-next-line no-console
-            console.log('Кладем в стор', JSON.parse(response.response));
             store.set('user', JSON.parse(response.response));
             router.go('/settings')
         } else {
@@ -96,7 +88,7 @@ const signUp = (data: any) => {
 const logout = () => {
     authAPI.getUserInfo()?.then((response: any) => {
         if (response.status === 200) {
-            authAPI.logout()?.then((response) => {
+            authAPI.logout()?.then(() => {
                 if(store.getState()['selectChat'] && store.getState()['selectChat'].socket) {  // закрываем сокет
                     if(store.getState()['selectChat'].socket.readyState) {
                         store.getState()['selectChat'].socket.close();
@@ -129,8 +121,6 @@ const createChat = (data: any) => {
             chatsAPI.getChat()?.then((response: any) => {
                 store.set('chats', JSON.parse(response.response));
             })
-            // eslint-disable-next-line no-console
-            console.log(response)
         } else {
             errorTextLabel.textContent = JSON.parse(response.response).reason;
             errorTextLabel?.classList.add('invalid');
@@ -169,16 +159,11 @@ const addUserChat = () => {
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
                     if(JSON.parse(response.response)[0]) {
                         const userId = JSON.parse(response.response)[0].id;
-                        chatsAPI.addUser({users: [userId], chatId: store.getState()['selectChat'].id})?.then((response: any) => {
-                            // eslint-disable-next-line no-console
-                            console.log(response.response);
-                        })
+                        chatsAPI.addUser({users: [userId], chatId: store.getState()['selectChat'].id})
                         document.querySelector('.popup')?.remove()
                     } else {
                         errorTextLabel.textContent = 'Не найден';
                         errorTextLabel?.classList.add('invalid');
-                        // eslint-disable-next-line no-console
-                        console.log('Не найден');
                         return
                     }
                 })
@@ -217,16 +202,11 @@ const removeUserChat = () => {
                 userAPI.searchByLogin({login: input.value})?.then((response: any) => {
                     if(JSON.parse(response.response)[0]) {
                         const userId = JSON.parse(response.response)[0].id;
-                        chatsAPI.deleteUser({users: [userId], chatId: store.getState()['selectChat'].id})?.then((response: any) => {
-                            // eslint-disable-next-line no-console
-                            console.log(response.response);
-                        })
+                        chatsAPI.deleteUser({users: [userId], chatId: store.getState()['selectChat'].id})
                         document.querySelector('.popup')?.remove()
                     } else {
                         errorTextLabel.textContent = 'Не найден';
                         errorTextLabel?.classList.add('invalid');
-                        // eslint-disable-next-line no-console
-                        console.log('Не найден');
                         return
                     }
                 })
@@ -236,7 +216,7 @@ const removeUserChat = () => {
 }
 
 const deleteChat = () => {
-    chatsAPI.deleteChat({chatId: store.getState()['selectChat'].id})?.then((response: any) => {
+    chatsAPI.deleteChat({chatId: store.getState()['selectChat'].id})?.then(() => {
         store.set('selectChat', {});
         chatsAPI.getChat()?.then((response: any) => {
             store.set('chats', JSON.parse(response.response));
@@ -302,9 +282,6 @@ const startDialog = () => {
     });
     
     socket.addEventListener('message', event => {
-        // eslint-disable-next-line no-console
-        console.log('Получены данные', event.data);
-        let msgClass = '';
         const result: any = [];
         let data = JSON.parse(event.data);
         if(!Array.isArray(data)) {
@@ -331,7 +308,7 @@ const startDialog = () => {
 }
 
 const connectChat = (id: any) => {
-    if(store.getState()['selectChat'] && store.getState()['selectChat'].socket) {  // закрываем сокет
+    if(store.getState()['selectChat'] && store.getState()['selectChat'].socket) {  
         if(store.getState()['selectChat'].socket.readyState) {
             store.getState()['selectChat'].socket.close();
         }

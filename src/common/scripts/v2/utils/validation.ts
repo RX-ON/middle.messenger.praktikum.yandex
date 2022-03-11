@@ -16,7 +16,7 @@ const MAP: any = {
         errorText: 'Вы ввели некорректный логин'
     },
     email: {
-        reg: /^[a-z0-9.-_]+@[a-z0-9-]+\.[a-z]{2,4}$/i,
+        reg: /^[a-z0-9.-_]+@[a-z0-9-]+\.[a-z]{2,40}$/i,
         errorText: 'Вы ввели некорректный email'
     },
     password: {

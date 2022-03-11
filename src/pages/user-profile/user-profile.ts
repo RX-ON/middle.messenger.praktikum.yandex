@@ -7,8 +7,6 @@ import { Actions } from '../../common/scripts/v2/Store';
 import renderDOM from '../../common/scripts/v2/utils/renderDOM';
 import Popup from '../../components/popup/popup';
 import Button from '../../components/button/button';
-
-// input: inputList, data -> src, first_name
 export default class UserProfilePage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {
@@ -65,7 +63,7 @@ export default class UserProfilePage extends Block {
                             events: {
                                 submit: (e: any) => {
                                     e.preventDefault()
-                                    const inputForm = document.getElementById('pop10');
+                                    const inputForm: any = document.getElementById('pop10');
                                     const form = new FormData(inputForm);
                                     Actions.changeAvatar(form)
                                     document.querySelector('.popup')?.remove()

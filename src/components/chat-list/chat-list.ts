@@ -7,8 +7,6 @@ import Popup from '../popup/popup';
 import Button from '../button/button';
 import { Actions } from '../../common/scripts/v2/Store';
 import Input from '../input/input';
-
-// input: content
 export default class ChatCollection extends Block {
     constructor(tag: any, props: any) {
         super(tag, {
@@ -52,7 +50,6 @@ export default class ChatCollection extends Block {
                                     e.preventDefault()
                                     const form = document.getElementById('pop10');
                                     const input = form?.querySelector('input');
-                                    console.log('Создаем', input.value)
                                     Actions.createChat({title: input?.value})
                                     document.querySelector('.popup')?.remove()
                                 }

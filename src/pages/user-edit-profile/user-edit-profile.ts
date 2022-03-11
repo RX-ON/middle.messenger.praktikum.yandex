@@ -5,10 +5,7 @@ import UserEditComponent from '../../components/user-edit-form/user-edit';
 import Button from '../../components/button/button';
 import InfoInput from '../../components/info-input/info-input';
 import checkValid from '../../common/scripts/v2/utils/checkValid';
-import getFormData from '../../common/scripts/v2/utils/getFormData';
 import { Actions } from '../../common/scripts/v2/Store';
-
-// input: inputList, src, btn
 export default class UserEditProfilePage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {
@@ -50,7 +47,6 @@ export default class UserEditProfilePage extends Block {
                 submit: (e: any) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('sub')
                     const formsList = document.forms;
                     if(!formsList) {
                         return;
@@ -71,8 +67,6 @@ export default class UserEditProfilePage extends Block {
                             if(!element.value) return
                             result[element.name] = element.value;
                         });
-                        console.log('target', e)
-                        // eslint-disable-next-line no-console
                         if(Object.keys(result).length !== 0) Actions.changeProfile(result);
                         form.reset();
                     }
@@ -83,7 +77,6 @@ export default class UserEditProfilePage extends Block {
     }
     componentDidMount() {
         checkValid();
-        // getFormData(Actions.changeProfile);
         return '';
 	}
     render() {

@@ -8,7 +8,6 @@ import Router from '../../common/scripts/v2/Router';
 import checkValid from '../../common/scripts/v2/utils/checkValid';
 import getFormData from '../../common/scripts/v2/utils/getFormData';
 import { Actions } from '../../common/scripts/v2/Store';
-// input: inputList, btn
 export default class RegistrationPage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {

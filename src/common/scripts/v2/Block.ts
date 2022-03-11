@@ -1,5 +1,4 @@
 import { v4 as makeUUID } from 'uuid';
-// import Handlebars from 'handlebars';
 import { compile } from 'pug';
 import EventBus from './EventBus';
 
@@ -60,7 +59,7 @@ export default class Block {
 	}
 
 	render() {
-		return '';
+		return document.createElement('div');
 	}
 
 	addEvents() {
@@ -138,7 +137,11 @@ export default class Block {
 	}
 
 	componentDidUpdate(oldProps: any, newProps: any) {
-		return true;
+		if (oldProps === newProps) {
+			return true;
+		} else {
+			return true;
+		}
 	}
 
 	setProps(newProps: any) {

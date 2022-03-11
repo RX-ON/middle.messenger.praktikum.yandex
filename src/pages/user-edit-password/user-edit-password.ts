@@ -5,10 +5,8 @@ import UserEditComponent from '../../components/user-edit-form/user-edit';
 import Button from '../../components/button/button';
 import InfoInput from '../../components/info-input/info-input';
 import checkValid from '../../common/scripts/v2/utils/checkValid';
-import getFormData from '../../common/scripts/v2/utils/getFormData';
 import { Actions } from '../../common/scripts/v2/Store';
 
-// input: inputList, src, btn
 export default class UserEditPasswordPage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {
@@ -71,10 +69,7 @@ export default class UserEditPasswordPage extends Block {
                             if(!element.value) return
                             result[element.name] = element.value;
                         });
-                        console.log(result.newPassword !== result.repeatNewPassword, result.newPassword == undefined)
                         if(result.newPassword !== result.repeatNewPassword || result.newPassword == undefined) continue
-                        console.log(result.newPassword !== result.repeatNewPassword, { newPassword: result.newPassword, oldPassword: result.oldPassword }, 'target', e)
-                        // eslint-disable-next-line no-console
                         if(Object.keys(result).length !== 0) Actions.changePassword({ newPassword: result.newPassword, oldPassword: result.oldPassword });
                         form.reset();
                     }

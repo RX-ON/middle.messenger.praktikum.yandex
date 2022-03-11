@@ -7,8 +7,6 @@ export function dateFormat(date: string) {
         return `${inputDate.getHours() < 10 ? '0' + inputDate.getHours() : inputDate.getHours()}:${inputDate.getMinutes() < 10 ? '0' + inputDate.getMinutes() : inputDate.getMinutes()}`
     }
 }
-// 86400000
-// 2022-03-08T11:33:17+00:00
 
 export function formatChats(chats: any) {
     const result = chats.map((chat: any) => {

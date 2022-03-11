@@ -1,9 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
 import Button from '../../components/button/button';
-import Chat from '../../components/chat/chat'
-import ChatCollection from '../../components/chat-list/chat-list';
 import template from './tes.template';
-import InfoInput from '../../components/info-input/info-input';
 import Input from '../../components/input/input';
 import LoginComponent from '../../components/login-form/login';
 
@@ -23,8 +20,6 @@ export default class TesPage extends Block {
 		
 						if(t && t.tagName && t.tagName.toString().toLowerCase() == 'button')
 						{
-							// eslint-disable-next-line no-console
-							console.log('Нажатие');
 							e.preventDefault();
 							e.stopPropagation();
 						}
@@ -67,8 +62,6 @@ export default class TesPage extends Block {
 				
 								if(t && t.tagName && t.tagName.toString().toLowerCase() == 'button')
 								{
-									// eslint-disable-next-line no-console
-									console.log('Auth');
 									e.preventDefault();
 									e.stopPropagation();
 								}

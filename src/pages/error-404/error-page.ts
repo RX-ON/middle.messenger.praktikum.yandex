@@ -3,7 +3,6 @@ import template from './error-page.template';
 import './error-page.scss';
 import ErrorComponent from '../../components/error/error';
 
-// input: data -> code, description, back-link
 export default class ErrorPage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {

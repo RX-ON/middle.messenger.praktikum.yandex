@@ -9,7 +9,6 @@ import getFormData from '../../common/scripts/v2/utils/getFormData';
 import Router from '../../common/scripts/v2/Router';
 import { Actions } from '../../common/scripts/v2/Store';
 
-// input: inputList, btn
 export default class LoginPage extends Block {
     constructor(tag: string, props: any) {
         super(tag, {
