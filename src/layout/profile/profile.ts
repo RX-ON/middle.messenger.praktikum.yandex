@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './profile.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./profile.pug');
 import './profile.scss';
 import Router from '../../common/scripts/v2/Router';
 export default class ProfileLayout extends Block {

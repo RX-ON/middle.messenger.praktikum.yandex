@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './popup.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./popup.pug');
 import './popup.scss'
 
 // input: msgList[]

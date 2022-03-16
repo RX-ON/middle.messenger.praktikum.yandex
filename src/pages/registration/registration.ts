@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './registration.template'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./registration.pug');
 import './registration.scss';
 import RegistrationComponent from '../../components/registration-form/registration';
 import Input from '../../components/input/input';

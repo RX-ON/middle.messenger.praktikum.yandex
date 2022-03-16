@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './registration.template'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./registration.pug');
 import './registration.scss';
 
 // input: inputList, btn

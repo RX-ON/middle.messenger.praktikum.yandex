@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './error.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./error.pug');
 import './error.scss';
 
 // input: content

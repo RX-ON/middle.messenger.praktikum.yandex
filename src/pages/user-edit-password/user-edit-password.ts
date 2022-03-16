@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './user-edit-password.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./user-edit-password.pug');
 import './user-edit-password.scss';
 import UserEditComponent from '../../components/user-edit-form/user-edit';
 import Button from '../../components/button/button';

@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './user-profile.template'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./user-profile.pug');
 import './user-profile.scss';
 import InfoInput from '../../components/info-input/info-input';
 import Router from '../../common/scripts/v2/Router';

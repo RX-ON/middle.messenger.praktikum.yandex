@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './chat-list.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./chat-list.pug');
 import './chat-list.scss';
 import Router from '../../common/scripts/v2/Router';
 import renderDOM from '../../common/scripts/v2/utils/renderDOM';
