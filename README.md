@@ -15,7 +15,7 @@
 
 Для меня материал оказался достаточно сложным, плюс совмещать все это с работой вовсе не просто. Я очень сильно старался успеть к дедлайну... надеюсь, получилось.
 
-
+В четвертом спринте мы развернули docker и запушили контейнер на heroku.
 
 ## Команды для запуска
 Для запуска в режиме разработки:
@@ -34,9 +34,18 @@ $ npm run server
 ```
 $ npm run start
 ```
+Для запуска тестов:
+```
+$ npm run test
+```
+Для запуска dev сервера:
+```
+$ npm run serve
+```
 
 ## Ссылки
 
 - [Макет в Figma](https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=0%3A1) (Пока взял стандартный)
 - [Netlify](https://vigilant-albattani-135a28.netlify.app/)
-- [PR](https://github.com/RX-ON/middle.messenger.praktikum.yandex/pull/3)
+- [Heroku](https://rx-app-msg.herokuapp.com/)
+- [PR](https://github.com/RX-ON/middle.messenger.praktikum.yandex/pull/4)
