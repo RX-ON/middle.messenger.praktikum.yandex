@@ -1,5 +1,5 @@
 import { v4 as makeUUID } from 'uuid';
-import { compile } from 'pug';
+// import { compile } from 'pug';
 import EventBus from './EventBus';
 
 export default class Block {
@@ -93,7 +93,7 @@ export default class Block {
 		return { children, props };
 	}
 
-	compile(template: string, props?: Record<string, any>) {
+	compile(template: any, props?: Record<string, any>) {
 		
 		if(typeof(props) == 'undefined')
 			props = this._props;
@@ -105,7 +105,7 @@ export default class Block {
 		});
 
 		const fragment: any = this.createDocumentElement('template');
-		fragment.innerHTML = compile(template)(propsAndStubs);
+		fragment.innerHTML = template(propsAndStubs);
 
 		Object.values(this._children).forEach(child => {
 			const stub = fragment.content.querySelector(`[data-id="${(child as any)._id}"]`);

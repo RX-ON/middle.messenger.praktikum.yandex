@@ -1,4 +1,3 @@
-export default `
 each data in chatsList
     hr.border(noshade)
     .chat(id=data.id)
@@ -12,13 +11,3 @@ each data in chatsList
             if data.unread_count
                 .notification
                     span.counter #{data.unread_count}
-`;
-
-//     {
-//       "id": 1897,
-//       "title": "Test",
-//       "avatar": null,
-//       "created_by": 317826,
-//       "unread_count": 0,
-//       "last_message": null
-//     },

@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './chat-select.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./chat-select.pug');
 import './chat-select.scss';
 import ChatCollection from '../../components/chat-list/chat-list';
 import Chat from '../../components/chat/chat';

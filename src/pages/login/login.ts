@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './login.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./login.pug');
 import './login.scss';
 import LoginComponent from '../../components/login-form/login';
 import Input from '../../components/input/input';

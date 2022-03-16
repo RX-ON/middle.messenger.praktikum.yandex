@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './user-edit.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./user-edit.pug');
 import './user-edit.scss';
 
 // input: inputList, src, btn

@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './auth.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./auth.pug');
 import './auth.scss';
 
 export default class AuthLayout extends Block {

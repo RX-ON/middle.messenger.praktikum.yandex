@@ -1,5 +1,3 @@
-import Button from './components/button/button';
-import TesPage from './pages/tes/tesPage';
 import Router from './common/scripts/v2/Router';
 import ChatListPage from './pages/chat-list';
 import ChatSelectPage from './pages/chat-select';
@@ -11,20 +9,11 @@ import UserEditPasswordPage from './pages/user-edit-password';
 import UserProfilePage from './pages/user-profile';
 import UserEditProfilePage from './pages/user-edit-profile';
 import MainLayout from './layout/main/main';
+import './common/styles/common.scss';
 
 const router = new Router('#app');
 
 router
-	.use('/test', TesPage, 'div', {
-		title: 'Надеюсь, это работает',
-        cnt: new Button(
-            'div',
-            {
-                btn: 'second_btn',
-                btnName: 'Вторая кнопка'
-            }
-        )
-	})
 	.use('/', AuthLayout, 'section', {
         className: 'auth',
         content: new LoginPage('div', {})

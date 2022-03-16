@@ -1,5 +1,6 @@
 import Block from '../../common/scripts/v2/Block';
-import template from './message.template';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const template = require('./message.pug');
 import './message.scss';
 import { Actions } from '../../common/scripts/v2/Store';
 export default class MessageField extends Block {
