@@ -1,12 +1,34 @@
-import checkValid from '../../common/scripts/utils/checkValid';
-import getFormData from '../../common/scripts/utils/getFormData';
-import renderPage from '../../common/scripts/utils/renderPage';
-import selectChat from '../../common/scripts/utils/selectChat';
-import MainLayout from '../../layout/main/main';
-import ChatListPage from './chat-list';
+import { Connect } from '../../common/scripts/v2/Store';
+import { formatChats } from '../../common/scripts/v2/utils/formatDate';
+import Button from '../../components/button/button';
+import ChatCollection from '../../components/chat-list/chat-list';
+import Chat from '../../components/chat/chat';
+import ChatListPage from './chat-list'
 
-const chat = selectChat();
-renderPage('#app', new MainLayout({
-    content: new ChatListPage({}).render(),
-    handlers: {getFormData, checkValid, chat}
-}));
+
+export default Connect(
+    ChatListPage,
+    (state: any) => {
+        if(state.chats == undefined || state.chats.reason) return {};
+        return {
+            chatList: new ChatCollection(
+                'section',
+                {
+                    className: 'chats',
+                    content: new Chat(
+                        'div',
+                        {
+                            className: 'chatList',
+                            chatsList: formatChats(state.chats),
+                        }
+                    ),
+                    btn: new Button(
+                        'div',
+                        {
+                        btnName: 'Создать чат'
+                    }),
+                }
+            ),
+        }
+    }
+)

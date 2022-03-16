@@ -1,15 +1,10 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './error.template';
 import './error.scss';
-// import historyBack from '../../common/scripts/utils/historyBack';
 
-// input: data -> code, description, back-link
+// input: content
 export default class ErrorComponent extends Block {
-    constructor(props: Record<string, any>) {
-        super('section', {...props, className: 'error'});
-    }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

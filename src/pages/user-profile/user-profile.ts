@@ -1,20 +1,23 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './user-profile.template'
 import './user-profile.scss';
 import InfoInput from '../../components/info-input/info-input';
-
-// input: inputList, data -> src, first_name
+import Router from '../../common/scripts/v2/Router';
+import { Actions } from '../../common/scripts/v2/Store';
+import renderDOM from '../../common/scripts/v2/utils/renderDOM';
+import Popup from '../../components/popup/popup';
+import Button from '../../components/button/button';
 export default class UserProfilePage extends Block {
-    constructor(props: Record<string, any>) {
-        super('section', {
-            ...props,
+    constructor(tag: string, props: any) {
+        super(tag, {
             className: 'info',
             data: {
                 src: '',
                 first_name: 'Гриша'
             },
-            inputList: new InfoInput({
+            inputList: new InfoInput(
+                'div',
+                {
                 data: {
                     src: '', 
                     disabled: true,
@@ -35,10 +38,45 @@ export default class UserProfilePage extends Block {
                     display_name: 'Имя в чате',
                     phone: 'Телефон'
                 }
-            }).render()
+            }),
+            events: {
+                click: (e: any) => {
+
+                    const t = e.target;
+        
+                    if(t && t.getAttribute('href')) {
+                        if (t.getAttribute('href') === '/') Actions.logout();
+                        (new Router('#app')).go(t.dataset.link);
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+
+                    if(t && t.dataset.photo) {
+                        renderDOM('#app', new Popup('div', {
+                            className: 'popup',
+                            title: 'Загрузить фото',
+                            id: 'pop10',
+                            content: `<input id="avatar" type="file" name="avatar" accept="image/*">`,
+                            btn: new Button('div', {
+                                btnName: 'Отправить'
+                            }),
+                            events: {
+                                submit: (e: any) => {
+                                    e.preventDefault()
+                                    const inputForm: any = document.getElementById('pop10');
+                                    const form = new FormData(inputForm);
+                                    Actions.changeAvatar(form)
+                                    document.querySelector('.popup')?.remove()
+                                }
+                            }
+                        }))
+                    }
+                }
+            },
+            ...props,
         });
     }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

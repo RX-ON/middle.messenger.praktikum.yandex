@@ -1,63 +1,74 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './chat-select.template';
 import './chat-select.scss';
 import ChatCollection from '../../components/chat-list/chat-list';
 import Chat from '../../components/chat/chat';
 import MessageField from '../../components/message/message';
+import Msg from '../../components/msg/msg';
+import Button from '../../components/button/button';
+import Dropdown from '../../components/dropdown/dropdown';
+import Store, { Actions } from '../../common/scripts/v2/Store';
 
-// input: chatList, messageField
 export default class ChatSelectPage extends Block {
-    constructor(props: Record<string, any>) {
-        super('div', {
-            chatList: new ChatCollection({
-                content: new Chat({
-                    chatsList: [
-                        {
-                            id: 1,
-                            date: '12:67',
-                            src: 'https://image.shutterstock.com/image-photo/young-man-studio-looking-cameraportrait-260nw-139246634.jpg',
-                            label: 'Евгений',
-                            text: 'Привет. Я вчера купил новый автомобиль, не хочешь посмотреть?',
-                            count: 2
-                        },
-                        {
-                            id: 2,
-                            date: 'СБ',
-                            src: 'http://img.youtube.com/vi/x_HL0wiK4Zc/maxresdefault.jpg',
-                            label: 'Аркадий',
-                            text: 'Изи, я тебе говорю, ИЗИ!!',
-                            count: 0
-                        },
-                        {
-                            id: 3,
-                            date: '1 Октября 2021',
-                            src: 'https://us.123rf.com/450wm/luismolinero/luismolinero1909/luismolinero190917934/130592146-handsome-young-man-in-pink-shirt-over-isolated-blue-background-keeping-the-arms-crossed-in-frontal-p.jpg?ver=6',
-                            label: 'Иван',
-                            text: 'Хрень какая-то. Думаю, тут надо идти другим путём!',
-                            count: 10
-                        },
-                        {
-                            id: 123,
-                            src: 'https://via.placeholder.com/50',
-                            label: 'Чат №1',
-                            text: 'Тут есть какая-то информация, go',
-                            date: 'ПН',
-                            count: 10
-                        }
-                    ]
-                }).render()
-            }).getContentString(),
-            messageField: new MessageField({
+    constructor(tag: string, props: any) {
+        super(tag, {
+            chatList: new ChatCollection(
+                'section',
+                {
+                    className: 'chats',
+                content: new Chat(
+                    'div',
+                    {
+                        className: 'chatList',
+                    chatsList: []
+                }),
+                btn: new Button(
+                    'div',
+                    {
+                    btnName: 'Создать чат'
+                }),
+            }),
+            messageField: new MessageField(
+                'div',
+                {
+                    className: 'msg',
                 data: {
                     src: '',
                     label: 'Евгений'
-                }
-            }).getContentString(),
+                },
+                dropdown: new Dropdown(
+                    'div',
+                    {
+                        dropList: [
+                            {
+                                id: 'addUser', name: 'Добавить пользователя'
+                            },
+                            {
+                                id: 'removeUser', name: 'Удалить пользователя'
+                            },
+                            {
+                                id: 'delChat', name: 'Удалить чат'
+                            },
+                        ]
+                    }
+                ),
+                dialog: new Msg(
+                    'section',
+                    {
+                        className: 'history',
+                        msgList: []
+                    }
+                )
+            }),
             ...props
         });
     }
+    componentDidMount(): string {
+        Actions.updateChats();
+        Store.getState()['selectChat'].socket.readyState == undefined ? Actions.connectChat(Store.getState()['selectChat'].id.toString()) : '';
+        return '';
+    }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

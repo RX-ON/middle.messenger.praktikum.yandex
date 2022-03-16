@@ -1,5 +1,6 @@
 export default `
 .login
     |!{form}
-    a.create-acc(href="/pages/registration/registration.html") Нет аккаунта?
+    span(class='error-form') Какая-то ошибка
+    a.create-acc(href="/sign-up") Нет аккаунта?
 `;

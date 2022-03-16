@@ -1,24 +1,24 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './error-page.template';
 import './error-page.scss';
-// import historyBack from '../../common/scripts/utils/historyBack';
 import ErrorComponent from '../../components/error/error';
 
-// input: data -> code, description, back-link
 export default class ErrorPage extends Block {
-    constructor(props: Record<string, any>) {
-        super('div', {
-            error: new ErrorComponent({
+    constructor(tag: string, props: any) {
+        super(tag, {
+            error: new ErrorComponent(
+                'section',
+                {
+                    className: 'error',
                 data: {
                     code: 500,
                     description: 'Упс, уже исправляем'
                 }
-            }).getContentString(),
+            }),
             ...props
         });
     }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

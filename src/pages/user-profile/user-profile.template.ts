@@ -1,11 +1,12 @@
 export default `
 .img
-    img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="")
+    img.user-icon(src=data.src || "https://via.placeholder.com/150", alt="", data-photo)
+    p(data-photo) Загрузить
 span.name #{data.first_name}
 ul.form
     |!{inputList}
 .actions 
-    a(href="/pages/user-edit-profile/user-edit-profile.html") Изменить данные
-    a(href="/pages/user-edit-password/user-edit-password.html") Изменить пароль
-    a(href="/pages/login/login.html") Выход
+    a(href="/settings/edit-profile" data-link="/settings/edit-profile") Изменить данные
+    a(href="/settings/edit-password" data-link="/settings/edit-password") Изменить пароль
+    a(href="/" data-link="/") Выход
 `;

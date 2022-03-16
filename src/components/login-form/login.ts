@@ -1,17 +1,14 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './login.template';
 import './login.scss';
 
 // input: inputList, btn
 export default class LoginComponent extends Block {
-    constructor(props: Record<string, any>) {
-        super('form', {
-            ...props,
-            className: 'login'
-        });
-    }
+    // constructor(tag: any, props: any) {
+    //     console.log('Был смонтирован объект формы авторизации');
+    //     super(tag, props)
+    // }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

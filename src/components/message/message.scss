@@ -40,27 +40,28 @@
                 font-size: 13px;
                 font-weight: bold;
             }
-            .three_dots {
-                background-image: url(../../../static/three_dots.svg);
-                width: 3px;
-                height: 16px;
-            }
         }
     }
 
     section.history {
         flex-grow: 1;
-        overflow-y: hidden;
+        overflow-y: scroll;
         display: flex;
-        justify-content: flex-end;
         flex-direction: column;
+        // flex-grow: 1;
+        // overflow-y: scroll;
+        // display: block;
+        // justify-content: flex-end;
+        // flex-direction: column;
+        // justify-content: flex-end;
         .message {
-            overflow: hidden;
+            // overflow: hidden;
             margin-bottom: 10px;
             border-radius: 5px;
             padding: 5px;
             color: $font_black_color;
             font-size: 12px;
+            // height: 20px;
             .message_my-message {
                 max-width: 380px;
                 background: $my_message_color;

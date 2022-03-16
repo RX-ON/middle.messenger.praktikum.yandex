@@ -3,25 +3,18 @@ header
     .wrapper
         .companion
             .img
-                img(src=data.src || "https://via.placeholder.com/150", alt="")
+                img(src=data.src ? "https://ya-praktikum.tech/api/v2/resources" + data.src : "https://via.placeholder.com/150", alt="")
             label.name #{data.label}
-        .three_dots
+        |!{dropdown}
     hr.border
-section.history
-    .message 
-        p.message_my-message Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia quos quaerat officiis optio esse nisi voluptates illum quam corrupti!
-    .message 
-        p.message_friend-message Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, eveniet?
-    .message 
-        p.message_my-message Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia quos quaerat officiis optio esse nisi voluptates illum quam corrupti!
-    .message 
-        p.message_friend-message Lorem
+    
+|!{dialog}
 footer 
     hr.border
-    form
+    form(id='formMessage')
         span.error(class=data.errorClassName) #{data.errorText || 'Какая-то ошибка'}
         .wrapper
             .staple
-            input.message_input(data-valid="false" type="text" placeholder="Сообщение" name="message")
+            input.message_input(data-valid="false" type="text" placeholder="Сообщение" name="message" autofocus)
             button.arrow
 `;

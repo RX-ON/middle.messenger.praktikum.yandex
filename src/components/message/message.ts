@@ -1,14 +1,35 @@
-import Block from '../../common/scripts/modules/Block';
-import { compile } from 'pug';
+import Block from '../../common/scripts/v2/Block';
 import template from './message.template';
 import './message.scss';
-
-// input: data -> src, label
+import { Actions } from '../../common/scripts/v2/Store';
 export default class MessageField extends Block {
-    constructor(props: Record<string, any>) {
-        super('div', {...props, className: 'msg'});
+    constructor(tag: string, props: any = {}) {
+        if(typeof(props['events']) == 'undefined')
+        props['events'] = {};
+        
+		props.events['click'] = (e: any) => {
+            const t = e.target;
+            if(t && t.id === 'addUser') {
+                Actions.addUserChat();
+            }
+            if(t && t.id === 'removeUser') {
+                Actions.removeUserChat();
+            }
+            if(t && t.id === 'delChat') {
+                Actions.deleteChat();
+            }
+		}
+		props.events['submit'] = (e: any) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const form: any = document.getElementById('formMessage');
+            const input = form.querySelector('input');
+            Actions.sendMessage(input.value);
+            form.reset();
+		}
+        super(tag, props);
     }
     render() {
-        return compile(template)(this.props);
+        return this.compile(template);
     }
 }

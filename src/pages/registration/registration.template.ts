@@ -1,5 +1,6 @@
 export default `
 .registration
     |!{form}
-    a.log-in(href="/pages/login/login.html") Войти
+    span(class='error-form') Какая-то ошибка
+    a.log-in(href="/") Войти
 `;

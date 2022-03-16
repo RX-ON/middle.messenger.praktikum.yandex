@@ -3,6 +3,7 @@
 section.info {
     height: 100vh;
     .img {
+        position: relative;
         height: 130px;
         width: 130px;
         border-radius: 50%;
@@ -17,6 +18,14 @@ section.info {
             height: 100%;
             width: auto;
         }
+        p {
+            position: absolute;
+            visibility: hidden;
+            cursor: default;
+        }
+    }
+    .img:hover p {
+        visibility: visible;
     }
 
     span.name {
